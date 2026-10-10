@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 4 of 6. A constructed Notion workspace of 165 rows, two designs of the same data and six ordinary edits. Count in your browser the rows that disagree with the truth, the invoices billed at a stale rate and the questions answered wrong, then try one giant table and delete a client.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The drift bench - learn notion with phoebe">
+<meta property="og:description" content="Session 4 of 6. Copied text against one Clients row with a relation: 52 drifting rows against 0, counted in your browser.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-notion-with-phoebe/courses/04-the-drift-bench.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-notion-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The drift bench - learn notion with phoebe">
+<meta name="twitter:description" content="Session 4 of 6. What copied text does to a workspace after six ordinary edits, counted row by row.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-notion-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 4 · The drift bench - learn notion with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=3">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-notion-with-phoebe</a> / Session 4 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Notion with Phoebe · Session 4 of 6</div>
+    <h1>The <span class="accent">drift</span> bench</h1>
+    <p class="sub">Session 3 argued that a client's name and rate should live in one row, with everything else pointing at it. Tonight the argument runs. Ines's workspace is in this page: 165 constructed rows over 26 weeks, built two ways, then hit with the edits every freelance year brings, a client renamed, a rate raised, a duplicate merged. The page counts the rows that now disagree with the truth, the invoices billed at a stale rate and the questions her workspace answers wrong. You climb four rungs, then try the design that feels simplest, then delete a client and see what is left pointing at nothing.</p>
+    <div class="chip-row">
+      <span class="chip level">🔴 Bench night</span>
+      <span class="chip audience">Bring your session 3 relations</span>
+      <span class="chip audience">No Notion needed tonight, all clicking</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:2">3-12 · Two designs, six edits</span>
+      <span class="a3" style="flex:6">12-38 · The bench, rung by rung</span>
+      <span class="a4" style="flex:2">38-45 · Limits, and Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">Nothing on this bench happened. Ines, Theo and every client are constructed, and the workspace is a seeded set of rows: 7 client rows (one of them an accidental duplicate), 16 projects, 96 tasks and 46 invoices across two quarters. The counts are real counts on those rows, done in your browser; what is modelled is Ines's habits, what she copies and what her monthly clean-up can see, and the widget says so on every number. An independent Python run reproduces every count on this page exactly. Your workspace will differ; the shape of the result is the lesson.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">counted = computed on the constructed rows</span>
+      <span class="pill">anti-lever and break = the two red toggles</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> The counted cost of copying one fact into many rows, read as three numbers at once; why a relation fixes names but not a rate that is still copied; why a live rollup would quietly rewrite last quarter's invoices; what one giant table actually does to empty cells and filters; and what a relation leaves behind when the row it points at is deleted.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the two designs and the six edits</span>
+      <h2>A copy cannot hear the edit</h2>
+      <span class="tag concept">6 min live</span>
+    </div>
+    <p class="lede">Design A types the client's name and rate into every project, task and invoice when the row is created. Design B keeps them once, in a Clients row, and every other row holds a relation to it. Both look identical on day one. The difference only appears when something changes, so the bench changes things: twelve realistic edits in date order, six applied by default.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Before and after an edit that renames Aldermoor Health to Aldermoor Care in week 7. Left, design A: the client's name is typed into a project, a task and an invoice; the Clients list is updated but the three copies still say Aldermoor Health, so all three now disagree. Right, design B: the project, task and invoice each hold an arrow to the single Clients row; the row is renamed once and all three show Aldermoor Care. The single Clients row is highlighted.">
+        <defs>
+          <filter id="n4aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="43" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <marker id="n4aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n4aH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n4aL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n4aS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n4aA { font: 700 11px Inter, sans-serif; fill: #2F2F2F; }
+          .n4aN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n4aW { font: 800 11px Inter, sans-serif; fill: #991B1B; }
+          .n4aK { font: 800 12px Inter, sans-serif; fill: #191919; }
+        </style>
+
+        <text class="n4aH" x="30" y="26">WEEK 7: ALDERMOOR HEALTH IS RENAMED ALDERMOOR CARE</text>
+
+        <g filter="url(#n4aSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="46" width="390" height="240" rx="12" transform="rotate(-0.4 235 166)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <rect x="60" y="84" width="160" height="40" rx="6" transform="rotate(-1.5 140 104)" fill="#FFFFFF"/>
+          <rect x="240" y="96" width="170" height="40" rx="6" transform="rotate(1.2 325 116)" fill="#FFFFFF"/>
+          <rect x="60" y="150" width="170" height="40" rx="6" transform="rotate(1 145 170)" fill="#FFFFFF"/>
+          <rect x="240" y="162" width="170" height="40" rx="6" transform="rotate(-1.4 325 182)" fill="#FFFFFF"/>
+          <rect x="450" y="46" width="390" height="240" rx="12" transform="rotate(0.4 645 166)" fill="#F7F6F3"/>
+          <rect x="560" y="74" width="170" height="44" rx="8" transform="rotate(-0.8 645 96)" fill="#B58900" stroke="#6B5100"/>
+          <rect x="470" y="196" width="110" height="40" rx="6" transform="rotate(-1.6 525 216)" fill="#FFFFFF"/>
+          <rect x="595" y="206" width="100" height="40" rx="6" transform="rotate(1.3 645 226)" fill="#FFFFFF"/>
+          <rect x="710" y="196" width="110" height="40" rx="6" transform="rotate(-1 765 216)" fill="#FFFFFF"/>
+          <path d="M525 192 C530 160 580 140 610 124" marker-end="url(#n4aAr)"/>
+          <path d="M645 202 L645 126" marker-end="url(#n4aAr)"/>
+          <path d="M765 192 C760 160 710 140 680 124" marker-end="url(#n4aAr)"/>
+        </g>
+
+        <text class="n4aW" x="58" y="68">✗ A · the name is copied</text>
+        <text class="n4aA" x="70" y="100">Clients list</text>
+        <text class="n4aS" x="70" y="116">Aldermoor Care</text>
+        <text class="n4aA" x="252" y="112">Project</text>
+        <text class="n4aS" x="252" y="128">Aldermoor Health</text>
+        <text class="n4aA" x="70" y="166">Task</text>
+        <text class="n4aS" x="70" y="182">Aldermoor Health</text>
+        <text class="n4aA" x="252" y="178">Invoice</text>
+        <text class="n4aS" x="252" y="194">Aldermoor Health</text>
+        <text class="n4aS" x="58" y="234">Three copies never heard the rename:</text>
+        <text class="n4aS" x="58" y="252">"revenue by client" now splits one</text>
+        <text class="n4aS" x="58" y="270">client into two groups.</text>
+
+        <text class="n4aL" x="468" y="68">✓ B · one row, three relations</text>
+        <text class="n4aK" x="576" y="94">Clients row</text>
+        <text class="n4aK" x="576" y="110" style="font-weight:600">Aldermoor Care</text>
+        <text class="n4aA" x="480" y="212">Project</text>
+        <text class="n4aS" x="480" y="228">Aldermoor Care</text>
+        <text class="n4aA" x="605" y="222">Task</text>
+        <text class="n4aS" x="605" y="238">shows the row</text>
+        <text class="n4aA" x="720" y="212">Invoice</text>
+        <text class="n4aS" x="720" y="228">Aldermoor Care</text>
+        <text class="n4aS" x="468" y="270">Renamed once, shown everywhere.</text>
+
+        <text class="n4aN" x="30" y="312">Constructed. A rename, a rate change and a merged duplicate are the three kinds of edit on the bench.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the copies on the left cannot hear an edit made anywhere else; on the right there is nothing to hear, because there is only one row</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Three counts, and what "the truth" means<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Rows disagreeing with the truth</strong> counts the 158 projects, tasks and invoices whose client label no longer names the client's current record. <strong>Invoices billed at a stale rate</strong> counts invoices whose rate is not the contract rate in force in the week they were issued, with the dollars billed off contract beside it. <strong>Questions answered wrong</strong> asks five things every freelancer asks of her workspace: revenue by client this quarter, how many clients were billed this quarter, Brightwell's open tasks, total billed this quarter, and the rate the next invoice will use. Each is right or wrong against the truth.</p>
+        <p>"The truth" is each client's current name and the contract rate in force on an invoice's week. That is a choice, and a fair one: an invoice sent before a rename may legitimately carry the old name on its PDF, but the label your database groups by has to identify the client you have now, or every by-client total splits.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The edits, the habits, and what is modelled<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The default six edits, in order: week 5, Corvid Studio's rate goes from $95 to $110; week 7, Aldermoor Health is renamed Aldermoor Care; week 9, a duplicate client called "Brightwell", created by mistake in week 3, is merged into Brightwell Mutual; week 12, Aldermoor's rate goes from $120 to $135; week 15, Dunmore Council becomes Dunmore District Council; week 18, Brightwell's rate goes from $125 to $140. The slider adds six more, ending with a rename and a rate change in week 25.</p>
+        <p>Modelled habits: on design A, Ines copies the current name and rate into a row when she creates it, and invoices copy the rate from their project. Her monthly sync (rung 2) runs at the end of every fourth week and touches only what her views show her: active projects, open tasks and unpaid invoices, where an invoice counts as paid four weeks after issue. Everything else is counted on the rows.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="bench">
+    <div class="section-kicker">
+      <span class="klabel">Build-along · the bench</span>
+      <h2>Ines's workspace, rung by rung</h2>
+      <span class="tag demo">★ 26 min · the main event</span>
+    </div>
+    <p class="lede">Start on rung 1 and read the verdict line, then the four numbers, then the five questions. Move one rung at a time and say out loud which number moved and which way. Then drag the edits slider to 0 and to 12 on each rung. Only then try the two red toggles. The numbers quoted on this page are all at the default of six edits.</p>
+
+    <div id="drift-bench"></div>
+
+    <div class="callout tip">
+      <p><strong>Read it in this order.</strong> Questions wrong, stale invoices, then disagreeing rows. On rung 1, after six edits, 52 of 158 rows disagree, 7 invoices were billed at a stale rate ($1,965 off contract) and 3 of 5 questions come back wrong: this quarter's revenue shows $57,855 when the contracts say $58,845. Keep those numbers in your head as you climb.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers what each rung fixes, and what it does not</span>
+      <h2>Names, rates and totals are three different problems</h2>
+      <span class="tag concept">6 min live</span>
+    </div>
+    <p class="lede">These are the numbers the widget prints at six edits, written down so they can be argued with after class. The Python reference reproduces every one.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two bar charts across the four rungs, counted at six edits. Left, rows disagreeing with the truth, out of 158: copied text 52, monthly sync 27, relation 0, relation plus rollups 0. Right, invoices billed at a stale rate: 7, 3, 7 and 0. Questions wrong out of 5: 3, 2, 2 and 0. The relation rung is highlighted: its names are perfect while its rates are as stale as copied text.">
+        <defs>
+          <filter id="n4bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="47" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="n4bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2F2F2F" stroke-width="1" opacity=".5"/></pattern>
+        </defs>
+        <style>
+          .n4bH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n4bL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n4bS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n4bV { font: 800 12px Inter, sans-serif; fill: #191919; }
+          .n4bN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n4bK { font: 800 12px Inter, sans-serif; fill: #191919; }
+        </style>
+
+        <text class="n4bH" x="30" y="26">THE LADDER AT SIX EDITS (CONSTRUCTED, COUNTED)</text>
+        <text class="n4bL" x="230" y="54">Rows disagreeing, of 158</text>
+        <text class="n4bL" x="600" y="54">Stale-rate invoices</text>
+
+        <g filter="url(#n4bSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="230" y="68" width="240" height="28" rx="4" fill="url(#n4bHc)"/>
+          <rect x="230" y="112" width="125" height="28" rx="4" fill="url(#n4bHc)"/>
+          <rect x="216" y="152" width="644" height="40" rx="8" fill="#B58900" stroke="#6B5100" opacity=".35"/>
+          <path d="M230 158 L230 186" stroke="#37352F"/>
+          <path d="M230 202 L230 230" stroke="#37352F"/>
+          <rect x="600" y="68" width="210" height="28" rx="4" fill="#E3E2DE"/>
+          <rect x="600" y="112" width="90" height="28" rx="4" fill="#E3E2DE"/>
+          <rect x="600" y="158" width="210" height="28" rx="4" fill="#E3E2DE"/>
+          <path d="M600 202 L600 230" stroke="#37352F"/>
+        </g>
+
+        <text class="n4bL" x="206" y="87" text-anchor="end">1 · copied text</text>
+        <text class="n4bL" x="206" y="131" text-anchor="end">2 · + monthly sync</text>
+        <text class="n4bK" x="206" y="177" text-anchor="end">3 · relation</text>
+        <text class="n4bL" x="206" y="221" text-anchor="end">4 · + rollups</text>
+        <text class="n4bV" x="480" y="87">52</text>
+        <text class="n4bV" x="365" y="131">27</text>
+        <text class="n4bV" x="240" y="177">0</text>
+        <text class="n4bV" x="240" y="221">0</text>
+        <text class="n4bV" x="820" y="87">7</text>
+        <text class="n4bV" x="700" y="131">3</text>
+        <text class="n4bV" x="820" y="177">7</text>
+        <text class="n4bV" x="610" y="221">0</text>
+        <text class="n4bS" x="380" y="250">$1,965 · $1,035 · $1,965 · $0 billed off the contract rate</text>
+
+        <text class="n4bN" x="30" y="290">Questions wrong of 5: 3, 2, 2, 0. Rung 3's names are perfect; its rate is still a copy on each project.</text>
+        <text class="n4bN" x="30" y="310">Rung 4 reads the rate from the client row when an invoice is issued, then keeps it.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the highlighted rung is the one that teaches: a relation cured every name and left every stale rate exactly where copied text had it</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Rungs 1 and 2: a clean-up chases a moving target<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>On copied text, six edits leave 52 of 158 rows disagreeing and 3 of 5 questions wrong. A monthly find-and-replace roughly halves the drift to 27 rows and leaves 3 stale invoices where copied text left 7, but it can only fix what Ines's views show her. Done tasks and paid invoices keep the old names forever, and every invoice issued between a rate change and the next sync goes out at the old rate. Drag the slider to 12: rung 2 climbs to 99 disagreeing rows and 4 wrong questions, because the edits keep coming and the sync only ever runs behind them.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Rung 3: the relation fixes names, not copied numbers<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>With every row related to one Clients row, disagreeing rows drop to 0 the moment the duplicate is merged, and the count of clients billed is right. Yet 7 invoices are still billed at a stale rate, the same 7 as on rung 1, and revenue this quarter still shows $57,855 against $58,845. The rate was typed onto each project when it started, so it is still a copy; a relation only fixes the facts that are read through it. That is session 3's rule made exact: one fact, one place applies to every fact, not just the one you noticed.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Rung 4, and the rollup that would rewrite history<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>On rung 4 the invoice reads the client's rate through a rollup when it is issued, and keeps that value: 0 disagreeing rows, 0 stale invoices, 0 wrong answers. The keeping matters. If the invoice's rate were a live rollup, it would follow every later rate change, and the widget counts what that would do: 14 past invoices would silently change amount. A rate in force when work was billed is its own fact, the billed rate, and it deserves its own place. Session 5 builds the button that freezes it.</p>
+        <p>One honest limit: at 0 edits every rung shows 21 disagreeing rows and 2 wrong questions, because the duplicate Brightwell row exists from week 3. No design finds a duplicate for you. A relation makes the merge one action instead of a hunt, which is why rungs 3 and 4 fall to 0 at edit 3.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The rebrand that split the revenue report.</strong> A common small-business story: a long-standing client changes its name, new invoices use the new one, and the year-end "revenue by client" view shows two half-size clients where there was one big one. Nobody made a mistake on any single row. The workspace simply had the name in more places than the rename reached. Rung 1 at six edits reproduces exactly that split.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the anti-lever and the break</span>
+      <h2>One giant table, and the row that disappears</h2>
+      <span class="tag concept">6 min live</span>
+    </div>
+    <p class="lede">Two moves feel like simplification. Putting everything in one table with every property feels tidy, and deleting a client you no longer work with feels like housekeeping. The bench runs both and prints what they cost.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels. Left, the anti-lever: one giant table of 165 rows and 16 properties drawn as a grid in which most cells are hatched as empty, 1,519 of 2,640 or 57.5 percent; below, an Overdue tasks view filtered on Due date and an unticked Done box catches 37 invoices beside 15 real overdue tasks. Right, the break: the Brightwell Mutual Clients row is deleted, and 50 projects, tasks and invoices are left with relation arrows pointing at an empty place, while 17,230 dollars of this quarter's revenue drops out of every by-client total on rung 3.">
+        <defs>
+          <filter id="n4cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="53" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="n4cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2F2F2F" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="n4cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n4cH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n4cL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n4cS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n4cV { font: 800 16px Inter, sans-serif; fill: #191919; }
+          .n4cN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n4cW { font: 800 11px Inter, sans-serif; fill: #991B1B; }
+        </style>
+
+        <text class="n4cH" x="30" y="26">TWO MOVES THAT FEEL LIKE TIDYING</text>
+
+        <g filter="url(#n4cSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="62" width="380" height="132" rx="8" transform="rotate(-0.4 230 128)" fill="url(#n4cHc)"/>
+          <rect x="52" y="74" width="80" height="22" rx="3" fill="#FFFFFF"/>
+          <rect x="140" y="104" width="96" height="22" rx="3" fill="#FFFFFF"/>
+          <rect x="244" y="134" width="70" height="22" rx="3" fill="#FFFFFF"/>
+          <rect x="322" y="164" width="86" height="22" rx="3" fill="#FFFFFF"/>
+          <rect x="40" y="226" width="380" height="58" rx="8" transform="rotate(0.5 230 255)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <rect x="560" y="70" width="160" height="40" rx="8" transform="rotate(-1 640 90)" fill="#FFFFFF" stroke-dasharray="6 5"/>
+          <rect x="470" y="196" width="110" height="36" rx="6" transform="rotate(-1.5 525 214)" fill="#F7F6F3"/>
+          <rect x="595" y="206" width="100" height="36" rx="6" transform="rotate(1.2 645 224)" fill="#F7F6F3"/>
+          <rect x="710" y="196" width="110" height="36" rx="6" transform="rotate(-0.8 765 214)" fill="#F7F6F3"/>
+          <path d="M525 190 C528 160 570 132 590 116" marker-end="url(#n4cAr)" stroke-dasharray="4 4"/>
+          <path d="M645 200 L645 120" marker-end="url(#n4cAr)" stroke-dasharray="4 4"/>
+          <path d="M765 190 C762 160 720 132 700 116" marker-end="url(#n4cAr)" stroke-dasharray="4 4"/>
+        </g>
+
+        <text class="n4cW" x="40" y="54">ANTI-LEVER · one table, every property</text>
+        <text class="n4cV" x="230" y="216" text-anchor="middle">57.5% of 2,640 cells empty</text>
+        <text class="n4cL" x="56" y="250">"Overdue tasks" view (Due, Done unticked)</text>
+        <text class="n4cS" x="56" y="270">catches 37 invoices beside 15 real tasks</text>
+
+        <text class="n4cW" x="470" y="54">BREAK · delete Brightwell Mutual's row</text>
+        <text class="n4cS" x="640" y="94" text-anchor="middle">nothing here now</text>
+        <text class="n4cS" x="525" y="218" text-anchor="middle">projects</text>
+        <text class="n4cS" x="645" y="228" text-anchor="middle">tasks</text>
+        <text class="n4cS" x="765" y="218" text-anchor="middle">invoices</text>
+        <text class="n4cV" x="645" y="268" text-anchor="middle">50 orphaned rows</text>
+        <text class="n4cS" x="645" y="286" text-anchor="middle">$17,230 leaves every by-client total (rung 3)</text>
+
+        <text class="n4cN" x="30" y="322">Counted on the constructed rows. Notion keeps a deleted page in Trash for 30 days; restoring it is the fix.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the giant table is mostly empty and its filters catch the wrong kind of row; the deleted client leaves fifty rows pointing at a gap</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The anti-lever: one giant table with every property<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Put clients, projects, tasks and invoices in one database with a Type column, and every row carries every property: 165 rows by 16 properties is 2,640 cells, and 1,519 of them, 57.5 percent, are empty, because a client has no due date and a task has no rate. The filters break next. A view meant for overdue tasks, "Due before today and Done unticked", also catches 37 invoices, which have a due date and no Done box to tick, beside the 15 tasks that really are overdue. Every view now needs an extra "Type is Task" filter, forever.</p>
+        <p>And the table fixes nothing about drift: client names are still typed text, so the counts are rung 1's, 52 disagreeing rows and 3 wrong questions. The honest nuance: a single database is not always wrong. Notion lets one database hold several data sources, and a small list of genuinely similar things belongs together. What fails is mixing different kinds of thing so that no property means the same on every row.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The break: delete the row everything points at<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Delete Brightwell Mutual, the client with the most revenue. On rungs 3 and 4, 50 rows lose their client: their relation now points at nothing, and $17,230 of this quarter's revenue (rung 3; $17,770 on rung 4) drops out of every by-client total, silently. On rungs 1 and 2 nothing is orphaned, because nothing was ever connected, yet the same 50 rows still name a client with no page, and nothing warns you. Neither design is safe from deletion. The relation design at least makes the damage visible as empty cells you can filter for.</p>
+        <p>What the bench models and Notion's help pages do not say: the bench treats the deleted row as gone. In Notion a deleted page goes to Trash and stays 30 days by default, and restoring it is the fix. What a relation displays while its target sits in Trash is not on the help pages read for this session, so try it in a test workspace before you trust either answer. For a client you no longer work with, set a Status of Past instead of deleting.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <p><strong>Archive with a property, never with the delete key.</strong> A Status of Past keeps every relation, every rollup and every old invoice intact, and one filter hides past clients from the views you use daily.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before session 5</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Find one copied fact in your own workspace</strong> (a name, a rate, an owner) that appears in more than one database, and count the rows that carry it.</li>
+      <li><strong>Run the bench at 12 edits on all four rungs</strong> and write the three numbers for each. Which rung gets worse fastest as edits pile up?</li>
+      <li><strong>Pick one property to turn into a relation</strong>, then list which numbers would still be copies after you do it, the way the rate was on rung 3.</li>
+      <li><strong>Replace one delete with a Status.</strong> Find a client, project or book you were going to delete and give it a Past or Archived status instead.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 4 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · On rung 3 every row relates to one Clients row, yet 7 invoices are still billed at a stale rate. Why?</p>
+      <button class="qopt" type="button">A · Relations in Notion only update once a day</button>
+      <button class="qopt" type="button">B · The duplicate client was never merged</button>
+      <button class="qopt" type="button">C · The rate is still typed onto each project when it starts, so it is still a copy; only facts read through the relation stay current</button>
+      <button class="qopt" type="button">D · The bench counts names as rates</button>
+      <p class="qwhy">The relation fixed every name, which is why disagreeing rows are 0. The rate was never read through the relation; it was copied onto projects, and copies drift. Rung 4 reads it from the client row at issue time.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · Why does rung 4 read the rate once, at issue, instead of using a live rollup of the client's current rate?</p>
+      <button class="qopt" type="button">A · A live rollup would follow every later rate change and silently rewrite past invoices: 14 of them on the bench</button>
+      <button class="qopt" type="button">B · Rollups cannot read number properties</button>
+      <button class="qopt" type="button">C · Live rollups are slower</button>
+      <button class="qopt" type="button">D · Notion does not allow rollups on invoices</button>
+      <p class="qwhy">The rate billed on an invoice is its own fact, fixed when the work was billed. Rollups can sum and show numbers (Notion lists Show original, Sum and others), but a live one would make history change whenever a rate does.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · The giant-table anti-lever shows 57.5 percent empty cells and an overdue view that catches 37 invoices. What is the root cause?</p>
+      <button class="qopt" type="button">A · Too many rows for one database</button>
+      <button class="qopt" type="button">B · Notion's filters are unreliable on large tables</button>
+      <button class="qopt" type="button">C · The properties have the wrong types</button>
+      <button class="qopt" type="button">D · Different kinds of thing share one set of properties, so no property means the same on every row, and every filter has to exclude the other kinds</button>
+      <p class="qwhy">165 rows is small. The trouble is that a client has no due date and an invoice has no Done box, so most cells are empty and a filter on Due and Done catches invoices. Separate databases keep each property meaningful on every row.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The drift bench (nt-live.js) on Ines's constructed workspace</span><span class="note">165 seeded rows, every count computed in the browser and reproduced exactly by the Python reference; habits modelled and labelled</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center, Relations &amp; rollups</span><span class="note">Rollup calculations and the absence of any statement about deleted targets; read at source 9 October 2026</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center, Duplicate, delete and restore content</span><span class="note">Trash, 30 days by default, restore; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center, Data sources</span><span class="note">One database can hold several data sources: the nuance on the anti-lever; read at source</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Ines, Theo, every client and every edit</span><span class="note">Constructed for teaching; your numbers will differ</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 4 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Copies cannot hear edits</b><span>Six edits: 52 of 158 rows drift on copied text, 0 with a relation.</span></div>
+      <div class="cheat-item"><b>A sync runs behind</b><span>Monthly clean-up: 27 rows at six edits, 99 at twelve. It only fixes what your views show.</span></div>
+      <div class="cheat-item"><b>Every fact, not one</b><span>A relation fixed names; the rate copied onto projects still left 7 stale invoices.</span></div>
+      <div class="cheat-item"><b>Billed rate is its own fact</b><span>Read it once at issue. A live rollup would rewrite 14 past invoices.</span></div>
+      <div class="cheat-item"><b>One giant table</b><span>57.5% empty cells, filters that catch the wrong kind of row, and the same drift.</span></div>
+      <div class="cheat-item"><b>Archive, do not delete</b><span>Deleting a client orphans 50 rows. A Past status keeps everything.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>Rung 4 needs two things the bench took for granted: an invoice that works out its own amount, and a button that copies the client's rate into the invoice once, at the moment it is issued. Session 5 builds both with Formulas 2.0, templates and buttons.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 4 of 6 · learn-notion-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="03-relations-and-rollups.html">← Prev: Relations and rollups</a> &nbsp;·&nbsp; <a href="05-formulas-templates-buttons.html">Next: Formulas, templates and buttons →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/nt-sample.js?v=1"></script>
+<script src="../assets/nt-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

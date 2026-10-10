@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 3 of 6. Write each fact once and let everything else point at it. Codd's 1970 redundancy and consistency problem in a client list, relations one-way and two-way with a 1-page limit, what a rollup can calculate and the two limits worth knowing, and the relation map of one constructed consultant's workspace.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Relations and rollups: one fact, one place - learn notion with phoebe">
+<meta property="og:description" content="Session 3 of 6. Relations instead of copies, rollups instead of hand-typed totals, and the relation map that holds it together.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-notion-with-phoebe/courses/03-relations-and-rollups.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-notion-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Relations and rollups: one fact, one place - learn notion with phoebe">
+<meta name="twitter:description" content="Session 3 of 6. One fact in one place: relations, rollups and the relation map, on one constructed workspace.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-notion-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 3 · Relations and rollups: one fact, one place - learn notion with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=3">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-notion-with-phoebe</a> / Session 3 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Notion with Phoebe · Session 3 of 6</div>
+    <h1>Relations and rollups: <span class="accent">one fact</span>, one place</h1>
+    <p class="sub">A client's rate typed on the client page, again on the project, again on the invoice, is three facts that happen to agree today. Tonight we replace copies with pointers: a relation says "this project belongs to that client" without repeating anything about the client, and a rollup reads a number through the relation instead of asking you to type it. By the end, Ines's workspace knows which client every project, task and invoice belongs to, and it counts for her.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Core</span>
+      <span class="chip audience">Bring your session 2 workspace</span>
+      <span class="chip audience">A laptop, Notion open in a browser</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · One fact, relations, rollups</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: the relation map</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">Ines is still constructed: an invented freelance user-research consultant with four active clients, two past ones and a part-time contractor, Theo. After session 2 her Projects and Tasks have real properties and views, but every project still says which client it is for in a typed text field, and her rates are typed wherever she happened to need them. Tonight that stops.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = build it yourself</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> A rule you can apply to any field ("is this fact already written somewhere else?"), relations between Clients, Projects, Tasks and Invoices with a 1-page limit where the world allows only one, your first rollups, and a clear list of what a rollup cannot do before you trip over it.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the one-fact-one-place rule</span>
+      <h2>Every copy is a promise to update it</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">In 1970, long before anyone typed a client list into Notion, E. F. Codd wrote about exactly this trap. His relational model paper applies operations on relations "to the problems of redundancy and consistency". The everyday version: write a fact twice and, sooner or later, the two copies disagree. The textbook form of his idea is "one fact in one place". That phrase is the teaching shorthand, not his words.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 318" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ines's rate for Brightwell Mutual written in three places: the Clients page, a Projects row and an Invoices row. A rate change from 125 to 140 arrives and reaches only the Clients page, which is highlighted as the one place the rate should live. The Projects row and the Invoices row still say 125 and sit in a red panel marked not reached, the inconsistent state. Constructed values.">
+        <defs>
+          <filter id="n3aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="53" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="n3aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2F2F2F" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="n3aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n3aH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n3aL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n3aS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n3aB { font: 800 11px Inter, sans-serif; fill: #6B5100; }
+          .n3aA { font: 700 11px Inter, sans-serif; fill: #2F2F2F; }
+          .n3aN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n3aK { font: 800 12px Inter, sans-serif; fill: #191919; }
+          .n3aW { font: 800 11px Inter, sans-serif; fill: #991B1B; }
+        </style>
+
+        <text class="n3aH" x="30" y="26">ONE RATE, WRITTEN IN THREE PLACES</text>
+
+        <g filter="url(#n3aSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="60" width="200" height="70" rx="10" transform="rotate(-1.5 140 95)" fill="#FFFFFF"/>
+          <path d="M246 95 L392 93" marker-end="url(#n3aAr)"/>
+          <rect x="400" y="56" width="220" height="72" rx="10" transform="rotate(0.8 510 92)" fill="#B58900" stroke="#6B5100"/>
+          <rect x="380" y="152" width="460" height="128" rx="12" transform="rotate(-0.4 610 216)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <rect x="400" y="190" width="200" height="70" rx="8" transform="rotate(-1.2 500 225)" fill="#FFFFFF"/>
+          <rect x="624" y="190" width="200" height="70" rx="8" transform="rotate(1.4 724 225)" fill="#FFFFFF"/>
+          <path d="M140 136 C140 200 260 222 370 222" stroke="#D3D1CB" stroke-dasharray="5 6"/>
+        </g>
+
+        <text class="n3aL" x="58" y="88">Rate change arrives</text>
+        <text class="n3aS" x="58" y="108">Brightwell: $125 to $140</text>
+        <text class="n3aK" x="416" y="86">Clients page · Brightwell</text>
+        <text class="n3aK" x="416" y="108">Rate 140 · updated</text>
+        <text class="n3aB" x="640" y="84">the one place the rate lives</text>
+        <text class="n3aB" x="640" y="102">everything else should read it</text>
+        <text class="n3aW" x="398" y="176">Not reached: still 125</text>
+        <text class="n3aL" x="414" y="218">Projects row</text>
+        <text class="n3aS" x="414" y="240">Rate 125 (typed copy)</text>
+        <text class="n3aL" x="638" y="218">Invoices row</text>
+        <text class="n3aS" x="638" y="240">Rate 125 (typed copy)</text>
+        <text class="n3aS" x="160" y="250">never told about the change</text>
+
+        <text class="n3aN" x="30" y="304">Consistency is a property of the state: a typo and a missed update look the same. Constructed values.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the change reached one copy of three; the workspace is now inconsistent, and nothing tells Ines which number is true</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Codd's problem in a client list<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Codd's paper calls a set of relations redundant when one of them holds something that can be derived from the others. Ines's rate on a project row is exactly that: it can be derived from the client the project belongs to. Derivable facts written down again are where trouble starts, because each copy has to be updated separately.</p>
+        <p>His second idea is the sharper one for working life. Consistency, he wrote, is "a property of the instantaneous state of a data bank", "independent of how that state came about". Put plainly: when the project row says 125 and the client page says 140, it does not matter whether Ines mistyped or forgot. The workspace is wrong either way, and a report built on it is wrong either way. You cannot fix that with care; you fix it by having only one place for the rate to be.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Where normal forms live<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The formal machinery that grew out of Codd's work, the normal forms and the update anomalies they prevent, came in his later papers and belongs to schema design. It is taught properly, with an anomaly lab, in <a href="https://phoebefu6.github.io/learn-data-modeling-with-phoebe/">Data Modeling ↗</a>. Here you only need the working rule: before you add a field, ask whether that fact is already written somewhere else. If it is, point at it with a relation instead of typing it again.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The email address that changed in one tool.</strong> A familiar pattern in small teams: a client contact changes jobs and sends a new email address. Someone updates the contact list, nobody updates the mailing tool, and the next three updates go to a dead inbox. No one made a mistake on the day. The mistake was keeping the address in two places.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers relations</span>
+      <h2>Point at the client, never retype it</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A relation is a property whose value is another page. Instead of typing "Brightwell Mutual" into a project, Ines links the project to the Brightwell Mutual row in Clients. Rename the client once and every linked project shows the new name, because the project never held a copy of the name; it held a pointer to the row.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three database cards: Clients, Projects and Invoices. Projects has a Client relation pointing to Clients, limited to 1 page, which is highlighted. Invoices has a Project relation pointing to Projects, also limited to 1 page. Both relations are two-way, so a matching property appears back on Clients and on Projects.">
+        <defs>
+          <filter id="n3bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="61" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="n3bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2F2F2F" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="n3bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n3bH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n3bL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n3bS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n3bA { font: 700 11px Inter, sans-serif; fill: #2F2F2F; }
+          .n3bN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n3bK { font: 800 12px Inter, sans-serif; fill: #191919; }
+        </style>
+
+        <text class="n3bH" x="30" y="26">THREE DATABASES, TWO RELATIONS, BOTH TWO-WAY</text>
+
+        <g filter="url(#n3bSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="60" width="190" height="140" rx="10" transform="rotate(-0.7 135 130)" fill="#F7F6F3"/>
+          <rect x="345" y="60" width="190" height="140" rx="10" transform="rotate(0.6 440 130)" fill="#F7F6F3"/>
+          <rect x="650" y="60" width="190" height="140" rx="10" transform="rotate(-0.5 745 130)" fill="#F7F6F3"/>
+          <ellipse cx="287" cy="97" rx="42" ry="17"/>
+          <rect x="258" y="88" width="58" height="18" rx="4" fill="#B58900" stroke="#6B5100"/>
+          <path d="M341 124 L240 124" marker-end="url(#n3bAr)"/>
+          <path d="M236 152 L337 152" marker-end="url(#n3bAr)" stroke="#5F5C57" stroke-dasharray="5 5"/>
+          <rect x="563" y="88" width="58" height="18" rx="4" fill="#FFFFFF"/>
+          <path d="M646 124 L545 124" marker-end="url(#n3bAr)"/>
+          <path d="M541 152 L642 152" marker-end="url(#n3bAr)" stroke="#5F5C57" stroke-dasharray="5 5"/>
+        </g>
+
+        <text class="n3bL" x="56" y="84">Clients</text>
+        <text class="n3bS" x="56" y="108">Name · Status · Rate</text>
+        <text class="n3bS" x="56" y="130">Projects (relation)</text>
+        <text class="n3bS" x="56" y="150">added by "Show on"</text>
+        <text class="n3bL" x="361" y="84">Projects</text>
+        <text class="n3bS" x="361" y="108">Name · Status · Due</text>
+        <text class="n3bS" x="361" y="130">Client, 1 page</text>
+        <text class="n3bS" x="361" y="150">Invoices (relation)</text>
+        <text class="n3bL" x="666" y="84">Invoices</text>
+        <text class="n3bS" x="666" y="108">Name · Hours · Rate</text>
+        <text class="n3bS" x="666" y="130">Project, 1 page</text>
+        <text class="n3bK" x="287" y="101" text-anchor="middle">1 page</text>
+        <text class="n3bA" x="592" y="101" text-anchor="middle">1 page</text>
+        <text class="n3bS" x="287" y="174" text-anchor="middle">two-way</text>
+        <text class="n3bS" x="592" y="174" text-anchor="middle">two-way</text>
+
+        <text class="n3bN" x="30" y="236">A project has exactly one client, and an invoice bills exactly one project, so both limits match the world.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - solid arrows are the relations Ines creates; dashed ones are the matching properties "Show on" adds on the other side</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>One-way, two-way, and Show on<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Notion's relations help page is precise about the default: a relation between two databases is created one-way. Projects gets a Client property, and Clients gets nothing. Turn on the "Show on [database]" toggle, here "Show on Clients", and Notion adds the matching property in the other database, so Brightwell Mutual's page now lists its projects. Ines wants that: opening a client and seeing everything running for them is half the point.</p>
+        <p>The second setting is the limit: <code>1 page</code> or <code>No limit</code>. A project has exactly one client, so Projects.Client is limited to 1 page. That is not tidiness. It makes the database refuse a state the real world cannot have, a project billed to two clients at once, instead of trusting Ines to notice. The other direction stays unlimited, because one client has many projects.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Self-relations, duplicates and exports<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>A database can relate to itself.</strong> Tasks can have a "Next task" relation pointing at another task, or "Blocked by". Useful for a research plan where recruiting has to finish before sessions start.</p>
+        <p><strong>Duplicating a database turns a two-way relation one-way.</strong> If you copy Projects to experiment, the copy's Client relation no longer appears back on Clients. Check every relation after a duplicate instead of assuming it came across whole.</p>
+        <p><strong>CSV export writes relations as plain-text URLs</strong>, and those cannot be re-imported as relations. An export is a fine backup to read, but it is not a round trip: bring it back and every pointer has become a line of text, which is the copy problem from Part 1 all over again.</p>
+        <p>One honest gap: the help page does not say what a relation shows when the page it points to is deleted. Notion keeps a deleted page in Trash for 30 days by default, and session 4 shows what a deleted client does to the rows that pointed at it.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <p><strong>Limit to 1 page whenever the real world allows only one.</strong> One client per project, one project per invoice, one project per task. Every limit you set is a mistake the database stops for you, so you never have to find it later.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers rollups</span>
+      <h2>Let the workspace do the counting</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A relation tells Notion which rows belong together. A rollup reads through that relation and calculates something from the rows on the other side: how many projects a client has, the total of their invoices, the date of the last one. Nothing is typed, so nothing goes stale.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 334" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A Clients row, Brightwell Mutual, reaches through its relation to four invoice rows of 2,500, 3,000, 1,750 and 2,750 dollars, dated 4 March to 3 June. A brace gathers them into two rollups: Total billed, a Sum of 10,000 dollars, highlighted, and Last invoiced, the Latest date, 3 June. Below, a red wrong-way panel shows a crossed-out path from Clients to a Projects rollup: you cannot roll up a rollup. Constructed values.">
+        <defs>
+          <filter id="n3cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="67" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="n3cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2F2F2F" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="n3cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n3cH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n3cL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n3cS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n3cA { font: 700 11px Inter, sans-serif; fill: #2F2F2F; }
+          .n3cN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n3cK { font: 800 12px Inter, sans-serif; fill: #191919; }
+          .n3cW { font: 800 11px Inter, sans-serif; fill: #991B1B; }
+        </style>
+
+        <text class="n3cH" x="30" y="26">ONE CLIENT ROW, ROLLING UP ITS INVOICES</text>
+
+        <g filter="url(#n3cSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="110" width="190" height="76" rx="10" transform="rotate(-1 135 148)" fill="#FFFFFF"/>
+          <rect x="330" y="56" width="200" height="32" rx="6" transform="rotate(0.6 430 72)" fill="#F7F6F3"/>
+          <rect x="330" y="100" width="200" height="32" rx="6" transform="rotate(-0.5 430 116)" fill="#F7F6F3"/>
+          <rect x="330" y="144" width="200" height="32" rx="6" transform="rotate(0.4 430 160)" fill="#F7F6F3"/>
+          <rect x="330" y="188" width="200" height="32" rx="6" transform="rotate(-0.6 430 204)" fill="#F7F6F3"/>
+          <path d="M234 140 C280 140 290 72 322 72" marker-end="url(#n3cAr)"/>
+          <path d="M234 146 C280 146 290 116 322 116" marker-end="url(#n3cAr)"/>
+          <path d="M234 152 C280 152 290 160 322 160" marker-end="url(#n3cAr)"/>
+          <path d="M234 158 C280 158 290 204 322 204" marker-end="url(#n3cAr)"/>
+          <path d="M542 56 C556 56 552 138 566 138 C552 138 556 220 542 220"/>
+          <path d="M572 132 C600 120 610 96 636 94" marker-end="url(#n3cAr)"/>
+          <path d="M572 144 C600 156 610 176 636 178" marker-end="url(#n3cAr)"/>
+          <rect x="644" y="64" width="200" height="58" rx="10" transform="rotate(0.8 744 93)" fill="#B58900" stroke="#6B5100"/>
+          <rect x="644" y="150" width="200" height="58" rx="10" transform="rotate(-0.7 744 179)" fill="#FFFFFF"/>
+          <rect x="40" y="240" width="800" height="60" rx="10" transform="rotate(0.2 440 270)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <rect x="584" y="254" width="80" height="32" rx="6" transform="rotate(-1.5 624 270)" fill="#FFFFFF" stroke="#991B1B"/>
+          <rect x="700" y="254" width="126" height="32" rx="6" transform="rotate(1.2 763 270)" fill="#FFFFFF" stroke="#991B1B"/>
+          <path d="M668 270 L694 270" stroke="#991B1B"/>
+          <path d="M674 262 L688 278 M674 278 L688 262" stroke="#991B1B" stroke-width="2.4"/>
+        </g>
+
+        <text class="n3cL" x="56" y="138">Brightwell Mutual</text>
+        <text class="n3cS" x="56" y="158">a Clients row</text>
+        <text class="n3cS" x="56" y="174">relation: Invoices</text>
+        <text class="n3cS" x="344" y="76">INV-01 · 4 Mar · $2,500</text>
+        <text class="n3cS" x="344" y="120">INV-02 · 1 Apr · $3,000</text>
+        <text class="n3cS" x="344" y="164">INV-03 · 6 May · $1,750</text>
+        <text class="n3cS" x="344" y="208">INV-04 · 3 Jun · $2,750</text>
+        <text class="n3cK" x="660" y="88">Total billed · Sum</text>
+        <text class="n3cK" x="660" y="108">$10,000</text>
+        <text class="n3cL" x="660" y="174">Last invoiced</text>
+        <text class="n3cS" x="660" y="194">Latest date · 3 Jun</text>
+        <text class="n3cW" x="56" y="264">Wrong way: a rollup of a rollup</text>
+        <text class="n3cS" x="56" y="284">Projects.Billed is already a rollup, so Clients cannot roll it up.</text>
+        <text class="n3cA" x="600" y="274">Clients</text>
+        <text class="n3cS" x="712" y="274">Billed (rollup)</text>
+
+        <text class="n3cN" x="30" y="322">Constructed values. The invoice Amount becomes a formula in session 5; tonight a Sum works on Hours.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the client row types nothing; it reaches one hop through its relation and returns a Sum and a Latest date, and a second hop through someone else's rollup is not allowed</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What a rollup can calculate<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A rollup asks three things: which relation to follow, which property on the other side to read, and what to calculate. The help page lists the calculations in three groups.</p>
+        <p><strong>Any property type:</strong> Show original, Show unique values, Count all, Count values, Count unique values, Count empty, Count not empty, Percent empty, Percent not empty.</p>
+        <p><strong>Numbers only:</strong> Sum, Average, Median, Min, Max, Range.</p>
+        <p><strong>Dates only:</strong> Earliest date, Latest date, Date range.</p>
+        <p>For Ines that means: Count all of a client's projects, Sum of an invoice number for total billed, Latest date of invoice dates for "last invoiced", and Show original to display a project's client on each task without typing it.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Two limits worth knowing<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>A rollup can only be sorted when it outputs a number.</strong> Sort clients by Count all of projects: fine. Sort tasks by a Show original rollup of the client name: not available. If you need that sort, it is a sign the value wants to be a property of its own.</p>
+        <p><strong>You cannot roll up a rollup.</strong> If Projects has a rollup "Billed" that sums its invoices, Clients cannot sum Billed. Put the raw number one hop away from where you need it: an Amount on each invoice, rolled up from wherever you want the total. For a client total, that means Invoices also carries a relation to its client, and that relation is itself a second statement of "which client". Keep it honest by showing the project's client beside it with a Show original rollup, so a mismatch is visible at a glance.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The "total billed" nobody updates.</strong> A familiar pattern in freelance workspaces: a client page with a line near the top saying "Total billed: $8,400", typed in March. Two invoices later it is still $8,400, and the one time it matters, a renewal conversation, it is the number on screen. A rollup cannot fall behind, because it is calculated from the invoices every time you look.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Wire the relation map in your own account</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">Open the workspace you built in sessions 1 and 2. Tonight every "which client?" and "which project?" becomes a relation, and the first rollups replace things you would otherwise type. Ines's project names and values are constructed; yours will differ. Everything here works on a free Notion account.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 286" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The relation map after tonight. Clients links two-way to Projects. Projects links two-way to Tasks and to Invoices. Every link from the many side is limited to 1 page. The Clients card lists its rollup, Projects count with Count all, highlighted. Tasks carries a Client rollup that shows the project's client with Show original. Invoices still has a typed Rate.">
+        <defs>
+          <filter id="n3dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="71" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="n3dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2F2F2F" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="n3dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n3dH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n3dL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n3dS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n3dN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n3dK { font: 800 12px Inter, sans-serif; fill: #191919; }
+        </style>
+
+        <text class="n3dH" x="30" y="26">THE RELATION MAP AFTER TONIGHT</text>
+
+        <g filter="url(#n3dSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="60" width="200" height="160" rx="10" transform="rotate(-0.6 140 140)" fill="#FFFFFF"/>
+          <rect x="52" y="132" width="176" height="76" rx="6" transform="rotate(0.8 140 170)" fill="#B58900" stroke="#6B5100"/>
+          <rect x="340" y="70" width="200" height="96" rx="10" transform="rotate(0.5 440 118)" fill="#F7F6F3"/>
+          <rect x="640" y="50" width="200" height="80" rx="10" transform="rotate(-0.6 740 90)" fill="#F7F6F3"/>
+          <rect x="640" y="160" width="200" height="80" rx="10" transform="rotate(0.7 740 200)" fill="#F7F6F3"/>
+          <path d="M248 112 L332 112" marker-start="url(#n3dAr)" marker-end="url(#n3dAr)"/>
+          <path d="M548 100 L632 90" marker-start="url(#n3dAr)" marker-end="url(#n3dAr)"/>
+          <path d="M548 140 C590 150 600 196 632 200" marker-start="url(#n3dAr)" marker-end="url(#n3dAr)"/>
+        </g>
+
+        <text class="n3dL" x="56" y="86">Clients</text>
+        <text class="n3dS" x="56" y="106">Name · Status · Rate</text>
+        <text class="n3dS" x="56" y="122">Projects (two-way)</text>
+        <text class="n3dK" x="66" y="154">Rollups</text>
+        <text class="n3dK" x="66" y="174">Projects count</text>
+        <text class="n3dK" x="66" y="194">Count all</text>
+        <text class="n3dL" x="356" y="96">Projects</text>
+        <text class="n3dS" x="356" y="118">Client, 1 page</text>
+        <text class="n3dS" x="356" y="136">Tasks (two-way)</text>
+        <text class="n3dS" x="356" y="154">Invoices (two-way)</text>
+        <text class="n3dL" x="656" y="76">Tasks</text>
+        <text class="n3dS" x="656" y="96">Project, 1 page</text>
+        <text class="n3dS" x="656" y="114">Client: Show original</text>
+        <text class="n3dL" x="656" y="186">Invoices</text>
+        <text class="n3dS" x="656" y="206">Project, 1 page</text>
+        <text class="n3dS" x="656" y="224">Hours, Rate (typed)</text>
+
+        <text class="n3dN" x="30" y="270">Every link is two-way through Show on. Rate is still a typed number: session 4 counts what that costs.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - four databases, three relations, no client name typed anywhere outside Clients; only the invoice rate is still a copy, on purpose, for now</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Relate Projects to Clients.</strong> In Projects, add a relation property called Client that points at Clients. Limit it to 1 page and turn on "Show on Clients" so each client page lists its projects.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · Projects.Client</span>Projects → add a property → Relation
+Name:          Client
+Related to:    Clients
+Limit:         1 page
+Show on Clients: on   (Clients gets a "Projects" property)</div>
+      </div>
+      <div class="step">
+        <p><strong>Fill it for every project.</strong> Click into each project's Client cell and pick the client row. Ines's projects are constructed; use your own from session 2. Then open one client and check its Projects property lists the right ones.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · fill the relation</span>Pension app usability, round 2   → Brightwell Mutual
+Patient portal diary study       → Aldermoor Health
+Brand site usability             → Corvid Studio
+Resident services survey         → Dunmore Council
+Check: open Brightwell Mutual → Projects shows its project
+(your project names will differ)</div>
+      </div>
+      <div class="step">
+        <p><strong>Relate Tasks to Projects.</strong> Same move one level down: a task belongs to exactly one project. Fill it for your open tasks.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · Tasks.Project</span>Tasks → add a property → Relation
+Name:          Project
+Related to:    Projects
+Limit:         1 page
+Show on Projects: on   (Projects gets a "Tasks" property)</div>
+      </div>
+      <div class="step">
+        <p><strong>Build out Invoices.</strong> Add a Project relation, then Hours and Rate as Number properties. The rate is typed by hand for now, and that is a deliberate copy of the client's rate: session 4 measures what it costs on constructed rows, and session 5 replaces it.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · Invoices</span>Invoices → add a property → Relation
+Name: Project  · Related to: Projects · Limit: 1 page
+Show on Projects: on
+Add property: Hours (Number)
+Add property: Rate  (Number)   ← still typed: a copy, for now
+Ines's first row (constructed):
+  INV-01 · Project: Pension app usability, round 2
+  Hours 20 · Rate 125</div>
+      </div>
+      <div class="step">
+        <p><strong>Add your first two rollups.</strong> On Clients, count each client's projects. On Tasks, show the client of the task's project, read through the relation instead of typed.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · two rollups</span>Clients → add a property → Rollup
+Name: Projects count
+Relation: Projects · Property: Name · Calculate: Count all
+
+Tasks → add a property → Rollup
+Name: Client
+Relation: Project · Property: Client · Calculate: Show original</div>
+      </div>
+      <div class="step">
+        <p><strong>Delete the old typed client text.</strong> If session 2 left you a Text property holding client names on Projects or Tasks, compare it with the new relation and rollup row by row, note any disagreement you find, then delete the text property. Two answers to "which client?" is exactly what tonight removes.</p>
+        <div class="prompt-box good"><span class="label">★ Step 6 · remove the copy</span>Projects → old "Client name" (Text) vs new Client (Relation)
+Rows that disagree: ___   (write the number down)
+Then: delete the Text property
+Repeat on Tasks if you had one there</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Name the relation after what it points at, in the singular when it is limited to 1 page.</strong> "Client" on Projects, "Projects" on Clients. The name then reads as a sentence: this project's Client, this client's Projects.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before session 4</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Finish the map:</strong> every project has a Client, every open task a Project, every invoice a Project, and all three relations show on the other side.</li>
+      <li><strong>Hunt one copy.</strong> Look through your properties for any fact that is already written somewhere else (a client name, a rate, a contact email). Write down where each copy lives and which one should be the only one.</li>
+      <li><strong>Add a Latest date rollup.</strong> Give Invoices a Date property, then add a rollup on Projects that shows the Latest date of its invoices, so each project knows when it was last billed.</li>
+      <li><strong>Export one database to CSV and open it.</strong> Find a relation column and look at what it became. That is why an export is a backup to read, never a way to move a workspace.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 3 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Why does Projects hold its client as a relation limited to 1 page, rather than a Text property with the client's name?</p>
+      <button class="qopt" type="button">A · Text properties cannot be filtered</button>
+      <button class="qopt" type="button">B · Relations take less space in the workspace</button>
+      <button class="qopt" type="button">C · The name lives once in Clients, so a rename reaches every project, and the limit stops a project having two clients</button>
+      <button class="qopt" type="button">D · A relation is required before a project row can be opened as a page</button>
+      <p class="qwhy">A typed name is a copy that has to be updated by hand; a relation points at the one Clients row. The 1-page limit makes the database refuse a state the world cannot have. Text can be filtered, space is not the issue, and any row opens as a page.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">2 · Projects has a rollup "Billed" that sums its invoices. What happens when Ines tries to total Billed on Clients?</p>
+      <button class="qopt" type="button">A · It works, but only with Sum, not Average</button>
+      <button class="qopt" type="button">B · It cannot be done: you cannot roll up a rollup, so the raw number has to sit one hop from Clients</button>
+      <button class="qopt" type="button">C · It works once Billed is sorted</button>
+      <button class="qopt" type="button">D · It works if the relation is limited to 1 page</button>
+      <p class="qwhy">The relations help page states it plainly: you cannot roll up a rollup. The fix is to roll up the raw number from where it lives, one hop away from where you want the total. Sorting and limits do not change that.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · Ines exports Projects to CSV and re-imports it elsewhere. What happened to the Client relation?</p>
+      <button class="qopt" type="button">A · It comes back as a working relation to the original Clients</button>
+      <button class="qopt" type="button">B · It comes back one-way instead of two-way</button>
+      <button class="qopt" type="button">C · It is dropped from the export entirely</button>
+      <button class="qopt" type="button">D · It was written as plain-text URLs, which cannot be re-imported as relations</button>
+      <p class="qwhy">CSV export writes relations as plain-text URLs that cannot be re-imported as relations. B describes what duplicating a database does, which is a different trap.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center, Relations &amp; rollups</span><span class="note">One-way default and "Show on", 1 page or No limit, self-relations, duplicates turning one-way, CSV export as plain-text URLs, the full rollup calculation list, numeric-only sorting, no rollup of a rollup; read at source 9 October 2026</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">E. F. Codd, "A Relational Model of Data for Large Shared Data Banks", 1970</span><span class="note">Communications of the ACM 13(6), 377-387; the redundancy and consistency quotes read at source. "One fact in one place" is labelled as the textbook form, not his words</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Notion Help Center, Database properties</span><span class="note">Relation, Rollup and Number used as property types; the full list is session 2</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Ines, her clients and projects</span><span class="note">Constructed for teaching, including every rate, invoice and date; your workspace will differ</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 3 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>One fact, one place</b><span>Before adding a field, ask if the fact is written elsewhere. If so, relate, do not retype.</span></div>
+      <div class="cheat-item"><b>Show on [database]</b><span>Relations start one-way. The toggle adds the matching property on the other side.</span></div>
+      <div class="cheat-item"><b>Limit to 1 page</b><span>Whenever the world allows only one: client per project, project per invoice or task.</span></div>
+      <div class="cheat-item"><b>Rollup = relation + property + calculation</b><span>Count all, Sum, Latest date, Show original cover most needs.</span></div>
+      <div class="cheat-item"><b>No rollup of a rollup</b><span>Keep the raw number one hop from where you need the total. Rollups sort only when numeric.</span></div>
+      <div class="cheat-item"><b>CSV is not a round trip</b><span>Relations export as plain-text URLs and never come back as relations. Duplicates go one-way.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>Ines's client names now live once, but her invoice rates are still typed copies. Session 4 is the drift bench: four designs of the same workspace, a run of constructed edits, and a count of what each kind of copy costs in rows that disagree and dollars off contract.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 3 of 6 · learn-notion-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="02-properties-that-answer-questions.html">← Prev: Properties that answer questions</a> &nbsp;·&nbsp; <a href="04-the-drift-bench.html">Next: The drift bench →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

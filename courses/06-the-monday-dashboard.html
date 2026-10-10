@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 6 of 6. A Monday dashboard built from linked views that hold filters and never rows, four questions answered by four filters, permissions that let a contractor edit task values without touching views, and a 15-minute weekly ritual on one constructed consultant's workspace.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The weekly dashboard you open every Monday - learn notion with phoebe">
+<meta property="og:description" content="Session 6 of 6. Linked views, one filter per purpose, Can edit content for a contractor, and a 15-minute Monday ritual.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-notion-with-phoebe/courses/06-the-monday-dashboard.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-notion-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The weekly dashboard you open every Monday - learn notion with phoebe">
+<meta name="twitter:description" content="Session 6 of 6. Linked views, permissions and a weekly ritual, on one constructed workspace.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-notion-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 6 · The weekly dashboard you open every Monday - learn notion with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=3">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-notion-with-phoebe</a> / Session 6 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Notion with Phoebe · Session 6 of 6</div>
+    <h1>The weekly <span class="accent">dashboard</span> you open every Monday</h1>
+    <p class="sub">Five sessions built the databases. Tonight they get a front door: one page that answers the four questions a freelancer asks on a Monday morning, built from linked views that hold filters and never rows. Then we decide exactly what the contractor can touch, and run a 15-minute ritual that keeps the whole workspace honest without deleting anything.</p>
+    <div class="chip-row">
+      <span class="chip level">🟠 Deeper</span>
+      <span class="chip audience">Anyone who finished sessions 1 to 5</span>
+      <span class="chip audience">Your own workspace open in a browser</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Linked views, filters, permissions</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: the Monday dashboard</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">Ines is still constructed: an invented freelance user-research consultant with four active clients and one part-time contractor, Theo, who recruits participants and takes notes. Her Clients, Projects, Tasks, Invoices and Reading list databases are related, rolled up and templated; what she lacks is one place to look on Monday morning, and a clear answer to what Theo is allowed to change.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = build it yourself</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> A Home page turned into a Monday dashboard of four linked views, each with one saved filter; projects grouped by client; an unpaid total you trust; Theo given Can edit content on Tasks while Invoices stays private; and a 15-minute weekly ritual you have already run once.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers linked views</span>
+      <h2>A dashboard holds views, never rows</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A dashboard is a page, and session 1 promised it would stay one. What sits on it are windows into databases that live elsewhere. Notion calls them linked databases: you type <code>/linked</code>, pick a database, and get a view of its rows. Edit a row through the window and the original changes, because there is only one row.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 344" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ines's Home page drawn as a dashboard holding four linked-view panels: Tasks due this week, Projects in progress, Invoices unpaid and Reading list in progress. A dashed arrow runs from each panel down to its single source database: Tasks, Projects, Invoices and Reading list. The Invoices unpaid panel is highlighted. No panel holds rows of its own.">
+        <defs>
+          <filter id="n6aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="61" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="n6aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2F2F2F" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="n6aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n6aH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n6aL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n6aS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n6aA { font: 700 11px Inter, sans-serif; fill: #2F2F2F; }
+          .n6aN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n6aK { font: 800 12px Inter, sans-serif; fill: #191919; }
+        </style>
+
+        <text class="n6aH" x="30" y="26">HOME: FOUR WINDOWS, FOUR SOURCES</text>
+
+        <g filter="url(#n6aSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="796" y="10" width="40" height="28" rx="4" transform="rotate(-3 816 24)" fill="#FFFFFF"/>
+          <path d="M804 8 L804 14 M828 8 L828 14"/>
+          <rect x="40" y="46" width="800" height="146" rx="10" transform="rotate(0.3 440 119)" fill="#F7F6F3"/>
+          <rect x="56" y="78" width="180" height="98" rx="8" transform="rotate(-0.6 146 127)" fill="#FFFFFF"/>
+          <rect x="252" y="78" width="180" height="98" rx="8" transform="rotate(0.5 342 127)" fill="#FFFFFF"/>
+          <rect x="448" y="78" width="180" height="98" rx="8" transform="rotate(-0.4 538 127)" fill="#B58900" stroke="#6B5100"/>
+          <rect x="644" y="78" width="180" height="98" rx="8" transform="rotate(0.6 734 127)" fill="#FFFFFF"/>
+          <path d="M68 152 L224 152 M68 164 L224 164 M264 152 L420 152 M264 164 L420 164 M656 152 L812 152 M656 164 L812 164" stroke="#D3D1CB" stroke-width="1.2"/>
+          <path d="M460 152 L616 152 M460 164 L616 164" stroke="#6B5100" stroke-width="1.2"/>
+          <path d="M146 198 L146 234" stroke-dasharray="5 5" marker-end="url(#n6aAr)"/>
+          <path d="M342 198 L342 234" stroke-dasharray="5 5" marker-end="url(#n6aAr)"/>
+          <path d="M538 198 L538 234" stroke-dasharray="5 5" marker-end="url(#n6aAr)"/>
+          <path d="M734 198 L734 234" stroke-dasharray="5 5" marker-end="url(#n6aAr)"/>
+          <rect x="56" y="240" width="180" height="52" rx="8" transform="rotate(0.5 146 266)" fill="#FFFFFF"/>
+          <rect x="252" y="240" width="180" height="52" rx="8" transform="rotate(-0.5 342 266)" fill="#FFFFFF"/>
+          <rect x="448" y="240" width="180" height="52" rx="8" transform="rotate(0.4 538 266)" fill="#FFFFFF"/>
+          <rect x="644" y="240" width="180" height="52" rx="8" transform="rotate(-0.6 734 266)" fill="#FFFFFF"/>
+          <rect x="64" y="248" width="26" height="36" rx="3" fill="url(#n6aHc)"/>
+          <rect x="260" y="248" width="26" height="36" rx="3" fill="url(#n6aHc)"/>
+          <rect x="456" y="248" width="26" height="36" rx="3" fill="url(#n6aHc)"/>
+          <rect x="652" y="248" width="26" height="36" rx="3" fill="url(#n6aHc)"/>
+        </g>
+
+        <text class="n6aA" x="816" y="30" text-anchor="middle">MON</text>
+        <text class="n6aL" x="58" y="66">Home · a page holding four linked views</text>
+
+        <text class="n6aL" x="68" y="100">Tasks due this week</text>
+        <text class="n6aS" x="68" y="120">linked view of Tasks</text>
+        <text class="n6aS" x="68" y="138">filter: due, not done</text>
+        <text class="n6aL" x="264" y="100">Projects in progress</text>
+        <text class="n6aS" x="264" y="120">linked view of Projects</text>
+        <text class="n6aS" x="264" y="138">grouped by Client</text>
+        <text class="n6aK" x="460" y="100">Invoices unpaid</text>
+        <text class="n6aK" x="460" y="120">view of Invoices</text>
+        <text class="n6aK" x="460" y="138">Status is Issued</text>
+        <text class="n6aL" x="656" y="100">Reading: in progress</text>
+        <text class="n6aS" x="656" y="120">linked view of Reading</text>
+        <text class="n6aS" x="656" y="138">Status is Reading</text>
+
+        <text class="n6aL" x="100" y="264">Tasks</text>
+        <text class="n6aS" x="100" y="281">the rows live here</text>
+        <text class="n6aL" x="296" y="264">Projects</text>
+        <text class="n6aS" x="296" y="281">the rows live here</text>
+        <text class="n6aL" x="492" y="264">Invoices</text>
+        <text class="n6aS" x="492" y="281">the rows live here</text>
+        <text class="n6aL" x="688" y="264">Reading list</text>
+        <text class="n6aS" x="688" y="281">the rows live here</text>
+
+        <text class="n6aN" x="30" y="322">Each panel keeps its own filter. Edit a row inside a panel and the source database changes. Constructed.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - four windows on one page, every row still living once in its own database; the unpaid panel is the one that costs money when it is wrong</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>A dashboard holds views, never rows<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Notion's linked databases guide gives the move in three steps: type <code>/linked</code> on the page, pick the database, then copy one of its existing views or create a new one. From then on, edits you make in the linked view appear in the original. The guide also draws the line that makes dashboards safe: "filters and views only apply to the linked instance".</p>
+        <p>So Ines can filter her Home copy of Tasks down to this week without touching the board she uses for planning, or the table Theo works from. Change a status in the Home panel and the task is done everywhere, because the panel never held a task. It held a question.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Linked data sources and what travels<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The data sources help page adds the vocabulary under the hood. "Every database is made up of at least one data source", and a database can contain several. When you link a data source into another place, edits to its title, its properties or its pages are reflected in the original. Views, filters, sorts and groups you create on the linked source stay local and do not change the original's views.</p>
+        <p>Two practical consequences. If you rename a property from inside a linked view, you renamed it for everyone. And only people with Can edit access can move data sources, which matters in Part 3: the contractor you trust with task values should not be the person who can relocate the database they live in.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The status report that someone re-types every Friday.</strong> A familiar pattern in shared workspaces: a "Weekly status" page where one person copies open tasks and overdue items in from three databases by hand. It is out of date by Monday lunchtime, and nobody can tell which line is stale. Replace each pasted block with a linked view and its filter, and the report is never re-typed again: it is just right whenever someone opens it.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the four questions a Monday dashboard answers</span>
+      <h2>One filter per purpose</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A dashboard fails in one of two ways: it shows everything, so nobody reads it, or it shows a clever mix nobody can explain. The cure is the same for both. Write down the question each panel answers, then give that panel exactly the filter the question needs, and nothing more.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 368" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four panels as small multiples, each with its filter expression and the question it answers. Tasks due this week: Due within this week AND Status is not Complete, answering what must I do. Projects in progress: Status is In progress, grouped by Client, answering what is live for each client. Invoices unpaid, highlighted: Status is Issued and not Paid, with a Sum of Amount, answering who owes me and how much. Reading list: Status is Reading, answering what am I reading.">
+        <defs>
+          <filter id="n6bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="67" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="n6bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2F2F2F" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="n6bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n6bH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n6bL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n6bS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n6bA { font: 700 11px Inter, sans-serif; fill: #2F2F2F; }
+          .n6bN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n6bK { font: 800 12px Inter, sans-serif; fill: #191919; }
+        </style>
+
+        <text class="n6bH" x="30" y="26">FOUR QUESTIONS, FOUR FILTERS</text>
+
+        <g filter="url(#n6bSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M800 10 L840 10 L826 24 L826 36 L814 40 L814 24 Z" fill="#F7F6F3"/>
+          <rect x="40" y="48" width="390" height="130" rx="10" transform="rotate(-0.5 235 113)" fill="#FFFFFF"/>
+          <rect x="450" y="48" width="390" height="130" rx="10" transform="rotate(0.5 645 113)" fill="#FFFFFF"/>
+          <rect x="40" y="196" width="390" height="130" rx="10" transform="rotate(0.4 235 261)" fill="#B58900" stroke="#6B5100"/>
+          <rect x="450" y="196" width="390" height="130" rx="10" transform="rotate(-0.4 645 261)" fill="#FFFFFF"/>
+          <path d="M56 136 L414 136 M466 136 L824 136 M466 284 L824 284" stroke="#D3D1CB" stroke-width="1.2"/>
+          <path d="M56 284 L414 284" stroke="#6B5100" stroke-width="1.2"/>
+        </g>
+
+        <text class="n6bL" x="58" y="74">Tasks due this week</text>
+        <text class="n6bA" x="58" y="98">Due is within this week</text>
+        <text class="n6bA" x="58" y="116">AND Status is not Complete</text>
+        <text class="n6bS" x="58" y="158">answers: what must I do before Friday?</text>
+
+        <text class="n6bL" x="468" y="74">Projects in progress</text>
+        <text class="n6bA" x="468" y="98">Status is In progress</text>
+        <text class="n6bA" x="468" y="116">group by: Client (the relation)</text>
+        <text class="n6bS" x="468" y="158">answers: what is live for each client?</text>
+
+        <text class="n6bK" x="58" y="222">Invoices unpaid</text>
+        <text class="n6bK" x="58" y="246">Status is Issued, not Paid</text>
+        <text class="n6bK" x="58" y="264">total: Sum of Amount</text>
+        <text class="n6bK" x="58" y="306">answers: who owes me, and how much?</text>
+
+        <text class="n6bL" x="468" y="222">Reading list</text>
+        <text class="n6bA" x="468" y="246">Status is Reading</text>
+        <text class="n6bA" x="468" y="264">one row is plenty</text>
+        <text class="n6bS" x="468" y="306">answers: what am I reading this week?</text>
+
+        <text class="n6bN" x="30" y="350">Filter groups mix AND and OR up to three layers deep. One purpose per panel keeps every filter short.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - each panel is one question with one filter; the unpaid filter is the one worth checking twice, because a loose version hides money</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>One filter per purpose<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>What is due this week?</strong> Tasks, Due within this week AND Status not Complete. Status groups its tags into To-do, In progress and Complete, so "not Complete" catches every unfinished state in one condition. <strong>What is in progress for each client?</strong> Projects, Status is In progress, grouped by the Client relation from session 3, so each client becomes a heading with its live projects under it. <strong>What is unpaid, and how much?</strong> Invoices, Status is Issued and not Paid, with the amount totalled. <strong>What am I reading?</strong> Reading list, Status is Reading.</p>
+        <p>Advanced filters combine AND and OR in filter groups, nested up to three layers deep, but a Monday panel rarely needs more than two conditions. Filter and sort changes apply only to you unless you choose "Save for everyone". Theo will open Home too, so save each panel's filter for everyone; otherwise he sees a different dashboard from the one you designed.</p>
+        <p>For the unpaid total: the help pages read for this session record Sum as a rollup calculation on number properties. A rollup cannot filter, so a per-client Sum adds paid and unpaid together. For an unpaid-only number on Clients, use the session 5 formula pattern, which can reach into related rows, keep the issued ones and add their amounts.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Charts, and when a table is enough<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Chart is one of the view types Notion's databases page names, alongside table, board, list, calendar, gallery and timeline. That is all the help pages read for this session record about charts; settings and chart types beyond the name are not covered here, so check the current help page before you build one.</p>
+        <p>The practical rule does not depend on the feature list. When the reader needs an exact number, such as which invoice and how much, a table is the right view: a chart answers "is this going up?", a table answers "who do I email?". Monday morning is mostly the second question.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <p><strong>If a panel needs scrolling, its filter is too loose.</strong> A Monday panel should fit on the screen. Twenty rows under "due this week" means the filter is catching next month, or the week is genuinely overloaded; both are worth knowing before 9am.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers permissions and sharing</span>
+      <h2>What Theo can touch</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Theo needs to tick off recruiting tasks and add notes to them. He does not need to see what Ines charges, and he should never be able to change the filter on a view she relies on. Notion's permission levels are fine-grained enough to say exactly that, if you set them on purpose instead of sharing the whole workspace.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 346" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A permissions map of Ines's workspace with Theo's access written on each box. Home: Can view. A subpage created inside Home inherits Can view, shown by an arrow from Home. Tasks database: Can edit content, highlighted, meaning he can edit pages and values but not views, sorts or filters. Projects: Can view. Invoices: no access, kept private, with a padlock. The six permission levels are listed underneath.">
+        <defs>
+          <filter id="n6cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="71" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="n6cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2F2F2F" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="n6cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n6cH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n6cL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n6cS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n6cA { font: 700 11px Inter, sans-serif; fill: #2F2F2F; }
+          .n6cN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n6cK { font: 800 12px Inter, sans-serif; fill: #191919; }
+        </style>
+
+        <text class="n6cH" x="30" y="26">THEO'S ACCESS, WRITTEN ON EACH BOX</text>
+
+        <g filter="url(#n6cSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="60" y="56" width="230" height="72" rx="10" transform="rotate(-0.7 175 92)" fill="#FFFFFF"/>
+          <path d="M175 134 L175 200" marker-end="url(#n6cAr)"/>
+          <rect x="60" y="208" width="230" height="72" rx="10" transform="rotate(0.6 175 244)" fill="#F7F6F3"/>
+          <rect x="380" y="50" width="450" height="66" rx="10" transform="rotate(0.4 605 83)" fill="#B58900" stroke="#6B5100"/>
+          <rect x="380" y="134" width="450" height="66" rx="10" transform="rotate(-0.4 605 167)" fill="#FFFFFF"/>
+          <rect x="380" y="218" width="450" height="66" rx="10" transform="rotate(0.3 605 251)" fill="url(#n6cHc)" stroke-dasharray="7 5"/>
+          <rect x="396" y="226" width="250" height="50" rx="6" fill="#FFFFFF" stroke="#D3D1CB" stroke-width="1.2"/>
+          <rect x="778" y="240" width="28" height="24" rx="4" fill="#FFFFFF"/>
+          <path d="M784 240 L784 232 C784 222 800 222 800 232 L800 240"/>
+        </g>
+
+        <text class="n6cL" x="76" y="84">Home (page)</text>
+        <text class="n6cS" x="76" y="104">Theo: Can view</text>
+        <text class="n6cA" x="186" y="172">inherits</text>
+        <text class="n6cL" x="76" y="236">Recruiting brief (subpage)</text>
+        <text class="n6cS" x="76" y="256">Theo: Can view, from Home</text>
+
+        <text class="n6cK" x="398" y="78">Tasks · Theo: Can edit content</text>
+        <text class="n6cK" x="398" y="98">edits pages and values, not views or filters</text>
+        <text class="n6cL" x="398" y="162">Projects · Theo: Can view</text>
+        <text class="n6cS" x="398" y="182">reads every row, changes nothing</text>
+        <text class="n6cL" x="406" y="246">Invoices · no access</text>
+        <text class="n6cS" x="406" y="265">kept private, Theo not on it</text>
+
+        <text class="n6cS" x="30" y="306">Levels: Full access · Can edit · Can edit content · Can comment · Can view · Can create (databases only)</text>
+        <text class="n6cN" x="30" y="328">A subpage created inside a page takes on that page's permissions. Check each database's own Share list.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - Theo can change any task value and nothing about how the views work; Invoices is a page he is simply not on</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What Theo can touch<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The sharing help page lists the levels: <strong>Full access</strong>, <strong>Can edit</strong>, <strong>Can edit content</strong>, <strong>Can comment</strong> and <strong>Can view</strong>, plus <strong>Can create</strong>, a database-only level that lets someone add pages without seeing anyone else's. The one built for Theo is Can edit content, which applies to databases only: he can create and edit pages and property values, but not the structure, the views, the sorts or the filters.</p>
+        <p>So Ines gives Theo Can edit content on Tasks, Can view on Projects and on Home, and nothing on Invoices. Then the inheritance rule, quoted from the page: "When you create a subpage inside of a page, that subpage will take on the permissions of its parent page." A recruiting brief Ines writes inside Home is visible to Theo the moment it exists. Anything private goes outside the pages he can see.</p>
+        <p>One gap to respect: the help pages read for this session do not say what a linked view shows to someone with no access to its source database. Do not rely on the Home panel hiding Invoices. Keep the Invoices database itself unshared, and check its Share list, not the dashboard's.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Guests and publishing<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Guests are people outside your workspace; the help page notes they need a Notion account. A freelancer's contractor is often exactly this, which is why Theo is shared into specific pages rather than given the workspace.</p>
+        <p>Publishing is a different act from sharing. The Share menu has a Publish tab that puts a page on the web. Never publish a page that holds invoices, rates or client names, and remember that subpages created inside a page start with that page's permissions. If you want to share something public, make a new page for it outside the dashboard.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The contractor who re-sorted everybody's view.</strong> A familiar pattern in shared workspaces: a contractor given full edit rights changes a board's filter to show only their own items, and the whole team's planning view quietly loses half its cards for a week. Can edit content prevents it at the source: they can still update every value they need to, but views, sorts and filters are out of reach.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Ines's Monday dashboard, in your own account</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">Turn the Home page from session 1 into the dashboard, share one database with a contractor, and run the ritual once. Ines's values below are constructed; your clients, filters and totals will differ. If you have no contractor, share with a second email of your own to watch the permission levels work.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Monday ritual as a 15-minute loop of five steps around the Home dashboard: one, triage tasks; two, check projects per client; three, chase unpaid invoices; four, archive finished projects by setting Status to Archived, never deleting, highlighted; five, pick one reading. Arrows run clockwise from step to step.">
+        <defs>
+          <filter id="n6dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="73" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="n6dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2F2F2F" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="n6dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n6dH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n6dL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n6dS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n6dN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n6dK { font: 800 12px Inter, sans-serif; fill: #191919; }
+        </style>
+
+        <text class="n6dH" x="30" y="26">THE MONDAY RITUAL: FIVE STEPS, 15 MINUTES</text>
+
+        <g filter="url(#n6dSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="350" y="150" width="180" height="70" rx="10" transform="rotate(-0.5 440 185)" fill="url(#n6dHc)"/>
+          <rect x="362" y="160" width="156" height="50" rx="6" fill="#FFFFFF" stroke="#D3D1CB" stroke-width="1.2"/>
+          <circle cx="440" cy="262" r="16" fill="#FFFFFF"/>
+          <path d="M440 262 L440 251 M440 262 L448 266"/>
+          <rect x="330" y="44" width="220" height="56" rx="10" transform="rotate(-1.5 440 72)" fill="#FFFFFF"/>
+          <rect x="620" y="122" width="220" height="56" rx="10" transform="rotate(2 730 150)" fill="#FFFFFF"/>
+          <rect x="620" y="246" width="220" height="56" rx="10" transform="rotate(-1.8 730 274)" fill="#FFFFFF"/>
+          <rect x="300" y="318" width="280" height="70" rx="10" transform="rotate(0.8 440 353)" fill="#B58900" stroke="#6B5100"/>
+          <rect x="40" y="200" width="220" height="56" rx="10" transform="rotate(1.6 150 228)" fill="#FFFFFF"/>
+          <path d="M556 72 C620 72 700 80 722 114" marker-end="url(#n6dAr)"/>
+          <path d="M730 184 L730 238" marker-end="url(#n6dAr)"/>
+          <path d="M720 308 C720 346 650 352 588 352" marker-end="url(#n6dAr)"/>
+          <path d="M294 354 C200 354 150 320 150 264" marker-end="url(#n6dAr)"/>
+          <path d="M150 194 C150 110 240 72 322 72" marker-end="url(#n6dAr)"/>
+        </g>
+
+        <text class="n6dL" x="440" y="182" text-anchor="middle">Home dashboard</text>
+        <text class="n6dS" x="440" y="199" text-anchor="middle">four linked views</text>
+
+        <text class="n6dL" x="346" y="68">1 · Triage tasks</text>
+        <text class="n6dS" x="346" y="86">due this week: do, move, hand over</text>
+        <text class="n6dL" x="636" y="146">2 · Projects per client</text>
+        <text class="n6dS" x="636" y="164">grouped by Client, spot stalls</text>
+        <text class="n6dL" x="636" y="270">3 · Chase unpaid invoices</text>
+        <text class="n6dS" x="636" y="288">Status is Issued, oldest first</text>
+        <text class="n6dK" x="318" y="342">4 · Archive finished projects</text>
+        <text class="n6dK" x="318" y="360">set Status to Archived</text>
+        <text class="n6dK" x="318" y="378">never delete: rows link to it</text>
+        <text class="n6dL" x="56" y="224">5 · Pick one reading</text>
+        <text class="n6dS" x="56" y="242">Reading list, one row only</text>
+
+        <text class="n6dN" x="30" y="414">Session 4 break, counted on the constructed rows: one deleted client orphaned 50 rows. Archive instead.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - five stops around one page, every Monday; the archive step is the one that protects every relation built in sessions 3 to 5</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Add four linked views to Home.</strong> Open Home. Under the title, type <code>/linked</code>, pick Tasks, and create a new view. Set its filter and save it for everyone. Repeat for Projects, Invoices and Reading list. Name each view by the question it answers.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · four windows, four filters</span>Home → /linked → Tasks → new table view
+  Name:   Due this week
+  Filter: Due is within this week AND Status is not Complete
+  Save for everyone
+Home → /linked → Projects  → "In progress"   Status is In progress
+Home → /linked → Invoices  → "Unpaid"        Status is Issued (not Paid)
+Home → /linked → Reading list → "Reading"    Status is Reading
+(Ines's names; yours may differ)</div>
+      </div>
+      <div class="step">
+        <p><strong>Group the projects panel by client.</strong> In the In progress panel, group by the Client relation from session 3 and hide empty groups. Each active client becomes a heading with its live projects underneath.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · projects per client</span>In progress panel → Group by: Client
+Hide empty groups
+Ines sees (constructed):
+  Aldermoor Health   · Diary study, round 2
+  Brightwell Mutual  · Pension app usability
+  Corvid Studio      · Checkout redesign test
+  Dunmore Council    · Resident survey</div>
+      </div>
+      <div class="step">
+        <p><strong>Add the unpaid total.</strong> Show the Amount column in the Unpaid panel so each invoice's figure is visible. For one number per client, add the session 5 formula on Clients that keeps only issued invoices and sums their amounts, because a Sum rollup would add paid ones too.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · the number that matters</span>Unpaid panel → show property: Amount, Client, Issued date
+Sort: Issued date, oldest first
+Clients → new Formula property "Unpaid":
+  prop("Invoices")
+    .filter(current.prop("Status") == "Issued")
+    .map(current.prop("Amount"))
+    .sum()
+(values constructed; your totals will differ)</div>
+      </div>
+      <div class="step">
+        <p><strong>Share Tasks with Theo, and check Invoices stays private.</strong> Open the Tasks database, share it with Theo as Can edit content. Share Home and Projects as Can view. Then open Invoices' Share menu and confirm Theo is not listed.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · Theo's access</span>Tasks    → Share → Theo → Can edit content
+Projects → Share → Theo → Can view
+Home     → Share → Theo → Can view
+Invoices → Share → check: Theo is NOT listed
+Rule: anything created inside Home inherits Home's access</div>
+      </div>
+      <div class="step">
+        <p><strong>Put the Monday review at the top.</strong> From session 5, add a weekly repeating template in Tasks called Monday review, so a fresh review task appears every week. On Home, add a button above the panels that adds a page to Tasks, for the weeks you start early.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · the ritual starts itself</span>Tasks → New ▾ → + New template → title: Monday review
+  Repeat: weekly · Monday · 08:30
+Home (top) → button "Start Monday review"
+  Action: Add page to → Tasks
+(buttons work on every plan; some actions are paid-only)</div>
+      </div>
+      <div class="step">
+        <p><strong>Run the 15-minute ritual once.</strong> Go round the loop in the figure, panel by panel. Archive finished projects with Status, never by deleting them: in session 4's break, deleting one client row orphaned 50 linked rows, counted on the constructed rows.</p>
+        <div class="prompt-box good"><span class="label">★ Step 6 · fifteen minutes</span>1  Triage tasks          (4 min)  do, move, or hand to Theo
+2  Projects per client   (3 min)  anything stalled?
+3  Chase unpaid          (3 min)  email the oldest issued invoice
+4  Archive finished      (3 min)  Status → Archived, never delete
+5  Pick one reading      (2 min)  one row moves to Reading
+(Ines's timings, constructed)</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Archive is a status, delete is a hole.</strong> An Archived project keeps its client, tasks and invoices joined up, so last quarter's totals still add up. A deleted one sits in Trash for 30 days by default and then is permanently deleted.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before next Monday</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Finish the dashboard:</strong> four linked views on Home, each named by its question, each filter saved for everyone.</li>
+      <li><strong>Write each panel's question above it</strong> as one line of text. If you cannot write the question in one line, split the panel.</li>
+      <li><strong>Audit sharing:</strong> open the Share menu of every database and write down who has which level. Anything shared wider than it needs to be, narrow it now.</li>
+      <li><strong>Run the ritual next Monday</strong> with a timer. Note which step overran, and tighten that panel's filter rather than adding a sixth step.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 6 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Why put a linked view of Tasks on the dashboard instead of a copied table of this week's tasks?</p>
+      <button class="qopt" type="button">A · A copied table loads faster, but a linked view looks tidier</button>
+      <button class="qopt" type="button">B · Linked views are the only way to show a filter on a page</button>
+      <button class="qopt" type="button">C · Edits in a linked view reach the one original row, while a copy has to be kept in step by hand</button>
+      <button class="qopt" type="button">D · A linked view stops anyone else editing the tasks</button>
+      <p class="qwhy">Edits in a linked database appear in the original, and its filters and views apply only to the linked instance. A copy is a second set of rows, and copies drift; session 4 counted how fast. A linked view changes nobody's permissions.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">2 · Theo must update task statuses and notes but never change a view's filter. Which level on Tasks?</p>
+      <button class="qopt" type="button">A · Can edit</button>
+      <button class="qopt" type="button">B · Can edit content</button>
+      <button class="qopt" type="button">C · Can comment</button>
+      <button class="qopt" type="button">D · Full access</button>
+      <p class="qwhy">Can edit content is database-only: create and edit pages and property values, but not structure, views, sorts or filters. Can edit and Full access would let him change the views; Can comment would not let him change a status.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · Ines creates a new subpage inside Home, which Theo can view. What access does Theo have to the subpage?</p>
+      <button class="qopt" type="button">A · None, until Ines shares it separately</button>
+      <button class="qopt" type="button">B · Full access, because new pages start open</button>
+      <button class="qopt" type="button">C · Whatever level he has on Tasks</button>
+      <button class="qopt" type="button">D · Can view, because a subpage takes on its parent page's permissions</button>
+      <p class="qwhy">The help page is explicit: a subpage created inside a page takes on the permissions of its parent page. That is why private material belongs outside any page Theo can see.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center guide, Using linked databases</span><span class="note">/linked, copy a view or create one, edits reach the original, filters and views stay with the linked instance; read at source 9 October 2026</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center, Data sources</span><span class="note">At least one data source per database, several allowed, what travels to the original and what stays local, Can edit to move sources; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center, Views, filters, sorts &amp; groups</span><span class="note">Save for everyone, filter groups three layers deep, group by a property and hide empty groups; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center, Sharing &amp; permissions</span><span class="note">The six levels, Can edit content and Can create, subpage inheritance, guests, the Publish tab; read at source</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Ines, Theo and every value shown</span><span class="note">Constructed for teaching; the 50 orphaned rows are counted on session 4's constructed rows; your workspace will differ</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 6 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Views, never rows</b><span>A dashboard is a page of linked views. Type /linked, pick the database, filter it.</span></div>
+      <div class="cheat-item"><b>What stays local</b><span>Filters, sorts, groups and views on a linked source stay local. Edits to rows and properties reach the original.</span></div>
+      <div class="cheat-item"><b>One filter per purpose</b><span>Name each panel by its question. If it needs scrolling, the filter is too loose.</span></div>
+      <div class="cheat-item"><b>Save for everyone</b><span>Otherwise your filter applies only to you, and others see a different dashboard.</span></div>
+      <div class="cheat-item"><b>Can edit content</b><span>Edit pages and values, never views, sorts or filters. The contractor's level.</span></div>
+      <div class="cheat-item"><b>Archive, never delete</b><span>Status to Archived keeps every relation whole. Subpages inherit their parent's access.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Where next</span>
+    <p>That is the whole workspace: databases with properties that answer questions, one fact in one place, formulas and templates that freeze what should not move, and a Monday page that shows it all. Revisit any session from the <a href="../index.html">course home</a>, find the next subject on <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a>, or follow Ines into her research vault, where her interview notes live, in <a href="https://phoebefu6.github.io/learn-obsidian-with-phoebe/">Obsidian ↗</a>.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 6 of 6 · learn-notion-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="05-formulas-templates-buttons.html">← Prev: Formulas, templates and buttons</a> &nbsp;·&nbsp; <a href="../index.html">Course home →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

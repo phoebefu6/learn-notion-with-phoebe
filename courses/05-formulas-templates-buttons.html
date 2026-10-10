@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 5 of 6. Formulas 2.0 that compute an invoice's amount and overdue flag, templates that stamp out the same project every time, and a database button that freezes the client's rate the moment an invoice is issued. Plus where database automations and the paid-plan line fit.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Formulas, templates and buttons - learn notion with phoebe">
+<meta property="og:description" content="Session 5 of 6. Compute what you used to type, stamp what you used to rebuild, and freeze the rate with one click.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-notion-with-phoebe/courses/05-formulas-templates-buttons.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-notion-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Formulas, templates and buttons - learn notion with phoebe">
+<meta name="twitter:description" content="Session 5 of 6. Formulas 2.0, repeating templates and a button that freezes the billed rate, on one constructed workspace.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-notion-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 5 · Formulas, templates and buttons - learn notion with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=3">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-notion-with-phoebe</a> / Session 5 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Notion with Phoebe · Session 5 of 6</div>
+    <h1>Formulas, templates and <span class="accent">buttons</span></h1>
+    <p class="sub">Session 4 ended with a design that scored zero on every drift count, and two things it took for granted: an invoice that works out its own amount, and a rate that gets copied into the invoice once, at the moment it is issued, and then never moves. Tonight we build both. Formulas compute what Ines used to type, templates stamp out what she used to rebuild by hand, and a button turns "issue this invoice" into one deliberate click.</p>
+    <div class="chip-row">
+      <span class="chip level">🟠 Deeper</span>
+      <span class="chip audience">Anyone who finished sessions 1 to 4</span>
+      <span class="chip audience">A laptop, your Notion workspace open</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Formulas, templates, buttons</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: the invoice engine</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">Ines is still constructed: an invented freelance user-research consultant with four active clients and one part-time contractor, Theo. Her Clients, Projects and Invoices databases are now related, one fact in one place, but every invoice amount is still typed by hand and every new project is still built from a blank page.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = build it yourself</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> An Invoices database that computes its own Amount and Overdue flag, a Client rate that reads the client's row live, a Billed rate that an "Issue invoice" button freezes once, a New project template, and a Monday review page that creates itself every week.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers Formulas 2.0</span>
+      <h2>Compute it, never type it</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A formula property works out its value from the row's other properties, every time you look. An amount typed by hand is a second copy of a fact the row already holds (hours times rate), and session 4 showed what second copies do. A formula is not a copy: it has no value of its own to fall out of step.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One invoice row, two formulas. The row holds Hours 12, Billed rate 125, Status Issued and a Due date. The first formula multiplies Hours by Billed rate and outputs Amount 1,500, highlighted. The second formula uses dateBetween with now and the due date, together with the status, and outputs Overdue false. Constructed values.">
+        <defs>
+          <filter id="n5aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="51" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="n5aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2F2F2F" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="n5aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n5aH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n5aL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n5aS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n5aB { font: 800 11px Inter, sans-serif; fill: #6B5100; }
+          .n5aA { font: 700 11px Inter, sans-serif; fill: #2F2F2F; }
+          .n5aN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n5aK { font: 800 12px Inter, sans-serif; fill: #191919; }
+        </style>
+
+        <text class="n5aH" x="30" y="26">ONE INVOICE ROW, TWO FORMULAS</text>
+
+        <g filter="url(#n5aSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="48" width="230" height="182" rx="10" transform="rotate(-0.6 155 139)" fill="url(#n5aHc)"/>
+          <rect x="52" y="78" width="206" height="140" rx="6" fill="#FFFFFF"/>
+          <path d="M62 110 L248 110 M62 142 L248 142 M62 174 L248 174" stroke="#D3D1CB" stroke-width="1.2"/>
+          <rect x="320" y="52" width="260" height="68" rx="8" transform="rotate(0.5 450 86)" fill="#F7F6F3"/>
+          <rect x="320" y="150" width="260" height="80" rx="8" transform="rotate(-0.5 450 190)" fill="#F7F6F3"/>
+          <rect x="640" y="58" width="200" height="56" rx="8" transform="rotate(-1.2 740 86)" fill="#B58900" stroke="#6B5100"/>
+          <rect x="640" y="162" width="200" height="56" rx="8" transform="rotate(1 740 190)" fill="#FFFFFF"/>
+          <path d="M274 96 L312 86" marker-end="url(#n5aAr)"/>
+          <path d="M274 160 C292 170 300 184 312 188" marker-end="url(#n5aAr)"/>
+          <path d="M586 86 L632 86" marker-end="url(#n5aAr)"/>
+          <path d="M586 190 L632 190" marker-end="url(#n5aAr)"/>
+          <path d="M790 250 L826 236 L832 244 L796 258 Z M790 250 L784 262 L796 258" stroke-width="1.6"/>
+        </g>
+
+        <text class="n5aA" x="56" y="68">INVOICE ROW · INV-031</text>
+        <text class="n5aS" x="64" y="100">Hours</text>
+        <text class="n5aL" x="180" y="100">12</text>
+        <text class="n5aS" x="64" y="132">Billed rate</text>
+        <text class="n5aL" x="180" y="132">125</text>
+        <text class="n5aS" x="64" y="164">Status</text>
+        <text class="n5aL" x="180" y="164">Issued</text>
+        <text class="n5aS" x="64" y="200">Due date</text>
+        <text class="n5aL" x="180" y="200">next Fri</text>
+
+        <text class="n5aA" x="334" y="74">FORMULA · Amount</text>
+        <text class="n5aL" x="334" y="100">prop("Hours") * prop("Billed rate")</text>
+        <text class="n5aA" x="334" y="172">FORMULA · Overdue</text>
+        <text class="n5aS" x="334" y="194">dateBetween(now(),</text>
+        <text class="n5aS" x="334" y="210">  prop("Due date"), "days") &gt; 0,</text>
+        <text class="n5aS" x="334" y="224">unless Status is Paid</text>
+
+        <text class="n5aK" x="656" y="82">Amount</text>
+        <text class="n5aK" x="656" y="100">1,500</text>
+        <text class="n5aL" x="656" y="186">Overdue</text>
+        <text class="n5aS" x="656" y="204">false (not due yet)</text>
+
+        <text class="n5aN" x="30" y="282">Change Hours or Billed rate and Amount follows at once; nothing was typed, so nothing can disagree. Constructed values.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the row holds the facts, the formulas hold only the rule; the amount is worked out on every view, never typed</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The syntax you type<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>References.</strong> The syntax help page writes a property reference as <code>prop("Name")</code>, and that is the form to type. The editor may then display the property name inline, the way the intro page shows <code>dateAdd(Start Date, 2, "week")</code>; same reference, different display. Ordinary operators do the arithmetic, so an amount is <code>prop("Hours") * prop("Billed rate")</code>.</p>
+        <p><strong>Choices.</strong> <code>if</code> takes a condition, a value when true and a value when false. <code>ifs</code> checks pairs in order and ends with a fallback: the help page's example <code>ifs(true, 1, true, 2, 3)</code> returns 1, because the first true condition wins.</p>
+        <p><strong>Names for pieces.</strong> <code>let</code> gives a part of the formula a name so you write it once. The help page's example: <code>let(SalesTax, (prop("Subtotal")*0.099), prop("Subtotal") + SalesTax)</code>. <code>lets</code> does the same for several names at once.</p>
+        <p><strong>Room to think.</strong> The Formulas 2.0 guide says formulas "can be written multi-line in the editor (with tabs and comments too!)", with comments written <code>/* like this */</code>. Use them: a formula Ines can read in six months is a formula she will not rewrite.</p>
+        <p><strong>What comes out.</strong> Formulas used to output text, numbers and checkboxes. The guide says they now also output pages, dates, people and lists. Tonight's Amount outputs a number and Overdue outputs a checkbox. The functions on this page (<code>if</code>, <code>ifs</code>, <code>let</code>, <code>lets</code>, <code>map</code>, <code>filter</code>, <code>sum</code>, <code>format</code>, <code>dateBetween</code>, <code>dateAdd</code>, <code>now</code>, <code>round</code>, <code>empty</code>, <code>contains</code>, <code>toNumber</code>, <code>style</code>) are the ones confirmed with examples on the syntax page; the editor lists the rest.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Reaching into related rows<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The guide says formulas "can reach into properties of related databases", which means many questions that used to need a rollup can now be one formula. Its own example counts the done tasks on a project through the Tasks relation:</p>
+        <p><code>prop("Tasks")<wbr>.map(current.prop("Status"))<wbr>.filter(current == "Done")<wbr>.length()</code></p>
+        <p>Read it left to right: take the related task pages, turn each into its Status, keep only the ones equal to "Done", count what is left. <code>current</code> means "the item being looked at right now" inside <code>map</code> and <code>filter</code>.</p>
+        <p><strong>Dot notation</strong> reads a piece of a value directly, for example <code>prop("Created By").name()</code> for the name of the person who made the row.</p>
+        <p><strong>One migration note.</strong> When Formulas 2.0 arrived, existing formulas that referenced rollup, person, file and multi-select properties were converted to text. If you inherit an old workspace and a formula that should be a number behaves like text, that conversion is the first suspect.</p>
+        <p><strong>Test as you write.</strong> Open the formula editor from a row rather than from the property header, and the help page says you get a live preview of the result for that row, with the available properties and functions listed beside it.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The amount column nobody trusted.</strong> A familiar pattern in freelance invoicing: hours in one column, a rate in another, and the amount typed in a third. Someone corrects the hours after a call and forgets the amount, and from then on the total at the bottom of the quarter is a sum of numbers that no longer equal hours times rate. Nobody can say which rows are wrong without recalculating all of them. A formula column has no such rows.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers templates</span>
+      <h2>A template is a stamp, not a starting page</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Every new project Ines runs needs the same few things: a kick-off call, a discussion guide, recruitment with Theo, a readout. Without a template she rebuilds that list from memory, and memory skips a step the week she is busiest. A database template is a page shape you stamp into the database, so every new row starts complete.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Top: a New project template, highlighted, drawn as a stamp. It holds a checklist of kick-off call, discussion guide, recruit with Theo and readout, and Status Not started. Arrows stamp it into three new Project rows, each with the same four checklist items and Status Not started. Bottom: a Monday review template set to repeat weekly creates one new page each Monday, four weeks shown.">
+        <defs>
+          <filter id="n5bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="57" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="n5bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2F2F2F" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="n5bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n5bH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n5bL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n5bS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n5bA { font: 700 11px Inter, sans-serif; fill: #2F2F2F; }
+          .n5bN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n5bK { font: 800 12px Inter, sans-serif; fill: #191919; }
+        </style>
+
+        <text class="n5bH" x="30" y="26">ONE TEMPLATE, EVERY NEW ROW THE SAME</text>
+
+        <g filter="url(#n5bSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M150 40 L150 56 M118 36 L182 36" stroke-width="3"/>
+          <rect x="40" y="60" width="230" height="160" rx="10" transform="rotate(-1.5 155 140)" fill="#B58900" stroke="#6B5100"/>
+          <rect x="360" y="52" width="230" height="52" rx="8" transform="rotate(0.8 475 78)" fill="#FFFFFF"/>
+          <rect x="360" y="118" width="230" height="52" rx="8" transform="rotate(-0.7 475 144)" fill="#FFFFFF"/>
+          <rect x="360" y="184" width="230" height="52" rx="8" transform="rotate(0.6 475 210)" fill="#FFFFFF"/>
+          <path d="M276 110 C310 96 330 82 352 78" marker-end="url(#n5bAr)"/>
+          <path d="M276 140 L352 144" marker-end="url(#n5bAr)"/>
+          <path d="M276 170 C310 186 330 204 352 208" marker-end="url(#n5bAr)"/>
+          <path d="M630 60 L630 230" stroke="#D3D1CB" stroke-width="1.2"/>
+          <rect x="40" y="276" width="230" height="56" rx="10" transform="rotate(0.6 155 304)" fill="#F7F6F3"/>
+          <path d="M360 334 L820 334" stroke="#D3D1CB" stroke-width="1.2"/>
+          <rect x="360" y="282" width="100" height="44" rx="6" transform="rotate(-2 410 304)" fill="#FFFFFF"/>
+          <rect x="480" y="282" width="100" height="44" rx="6" transform="rotate(1.5 530 304)" fill="#FFFFFF"/>
+          <rect x="600" y="282" width="100" height="44" rx="6" transform="rotate(-1 650 304)" fill="#FFFFFF"/>
+          <rect x="720" y="282" width="100" height="44" rx="6" transform="rotate(2 770 304)" fill="#FFFFFF"/>
+          <path d="M276 304 L352 304" marker-end="url(#n5bAr)"/>
+        </g>
+
+        <text class="n5bK" x="58" y="88">New project · template</text>
+        <text class="n5bK" x="58" y="116">☐ Kick-off call</text>
+        <text class="n5bK" x="58" y="136">☐ Discussion guide</text>
+        <text class="n5bK" x="58" y="156">☐ Recruit with Theo</text>
+        <text class="n5bK" x="58" y="176">☐ Readout</text>
+        <text class="n5bK" x="58" y="202">Status: Not started</text>
+
+        <text class="n5bL" x="374" y="76">Brightwell round 2</text>
+        <text class="n5bS" x="374" y="94">same 4 items · Not started</text>
+        <text class="n5bL" x="374" y="142">Corvid onboarding study</text>
+        <text class="n5bS" x="374" y="160">same 4 items · Not started</text>
+        <text class="n5bL" x="374" y="208">Dunmore survey</text>
+        <text class="n5bS" x="374" y="226">same 4 items · Not started</text>
+        <text class="n5bA" x="648" y="120">Client: left empty</text>
+        <text class="n5bS" x="648" y="138">set on each new row,</text>
+        <text class="n5bS" x="648" y="154">never in the template</text>
+
+        <text class="n5bL" x="56" y="300">Monday review · template</text>
+        <text class="n5bS" x="56" y="318">repeats weekly, interval 1</text>
+        <text class="n5bL" x="410" y="308" text-anchor="middle">Mon wk 1</text>
+        <text class="n5bL" x="530" y="308" text-anchor="middle">Mon wk 2</text>
+        <text class="n5bL" x="650" y="308" text-anchor="middle">Mon wk 3</text>
+        <text class="n5bL" x="770" y="308" text-anchor="middle">Mon wk 4</text>
+        <text class="n5bS" x="360" y="346">one new page every Monday, created by the repeat</text>
+
+        <text class="n5bN" x="30" y="376">The template fixes the shape of a new row, not its client. Constructed project names.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - stamp once, get the same checklist and status on every new project; a repeating template stamps on a schedule instead of on a click</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>A New project template<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The help page puts it next to the New button: open the dropdown beside New and choose <code>+ New template</code>. The template is a page, and its title is the template's name, so call it what you will pick from the list: New project.</p>
+        <p>Inside it, put what every project needs: a checklist of the standard steps, a heading for the brief, a Status of Not started. When Ines creates a project from it, the new row arrives with all of that already written. What she adds is only what is different about this project: the name, the client, the dates.</p>
+        <p>The test for what belongs in a template is the same as session 1's test for a database, turned around: put in only what is true of every row. Anything that differs per row is a blank to fill, not a value to pre-set.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Repeating templates and their limits<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A template can repeat: daily, weekly, monthly or yearly, with an interval, a start date and a time. In the help page's words, repeating templates "automatically create a copy of a template in your database" on that schedule. That is how Ines gets a Monday review page in her Meetings database every week without remembering to make one.</p>
+        <p>Three limits from the same page. Templates can nest at most three levels deep. There is no nesting inside a daily-repeating template. And the page advises against pre-filling relation properties unless every page made from that template should relate to the same page.</p>
+        <p>That last one is the trap. A New project template with Brightwell Mutual pre-filled as the client would quietly file every future project under Brightwell, and session 4's by-client revenue would be wrong from the first new project. Leave relations blank in templates unless the target truly never changes.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <p><strong>Never pre-fill the client relation in a template.</strong> A template stamps the same value on every row it makes. The client is the one thing that is different on every project, so it is always a blank you fill on the new row.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers buttons and database automations</span>
+      <h2>The rate that stops moving when you say so</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Session 4's winning design read the client's rate when an invoice was issued and then kept it. "When an invoice is issued" is a moment a person decides: Ines sends the invoice, and only then should the rate be fixed. A button is how you give a person's decision a single, repeatable effect.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 362" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A decision tree: button, automation or neither. First question: does a person decide the moment? Yes leads to a button, highlighted, for example Issue invoice. No leads to: must it run on every change or on a schedule? Yes leads to a database automation, with triggers Page added, Property edited and Every frequency, on a paid plan. No leads to: does it need another app? Yes leads to an external automation tool. No leads to neither: a formula or a view does it.">
+        <defs>
+          <filter id="n5cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="63" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <marker id="n5cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n5cH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n5cL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n5cS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n5cA { font: 700 11px Inter, sans-serif; fill: #2F2F2F; }
+          .n5cN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n5cK { font: 800 12px Inter, sans-serif; fill: #191919; }
+        </style>
+
+        <text class="n5cH" x="30" y="26">BUTTON, AUTOMATION OR NEITHER?</text>
+
+        <g filter="url(#n5cSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="56" width="250" height="56" rx="10" transform="rotate(-0.6 165 84)" fill="#FFFFFF"/>
+          <rect x="620" y="44" width="220" height="80" rx="10" transform="rotate(0.7 730 84)" fill="#B58900" stroke="#6B5100"/>
+          <path d="M806 94 L806 114 L811 109 L816 118 L819 116 L814 107 L821 107 Z" stroke-width="1.6" fill="#FFFFFF"/>
+          <rect x="340" y="150" width="250" height="56" rx="10" transform="rotate(0.5 465 178)" fill="#FFFFFF"/>
+          <rect x="620" y="138" width="220" height="80" rx="10" transform="rotate(-0.6 730 178)" fill="#F7F6F3"/>
+          <rect x="340" y="250" width="250" height="56" rx="10" transform="rotate(-0.5 465 278)" fill="#FFFFFF"/>
+          <rect x="620" y="238" width="220" height="80" rx="10" transform="rotate(0.5 730 278)" fill="#F7F6F3"/>
+          <rect x="40" y="250" width="250" height="56" rx="10" transform="rotate(0.6 165 278)" fill="#F7F6F3"/>
+          <path d="M294 80 L612 80" marker-end="url(#n5cAr)"/>
+          <path d="M165 118 C165 170 250 178 332 178" marker-end="url(#n5cAr)"/>
+          <path d="M594 178 L612 178" marker-end="url(#n5cAr)"/>
+          <path d="M465 212 L465 242" marker-end="url(#n5cAr)"/>
+          <path d="M594 278 L612 278" marker-end="url(#n5cAr)"/>
+          <path d="M336 278 L298 278" marker-end="url(#n5cAr)"/>
+        </g>
+
+        <text class="n5cL" x="56" y="80">Does a person decide</text>
+        <text class="n5cL" x="56" y="98">the moment it happens?</text>
+        <text class="n5cA" x="450" y="72" text-anchor="middle">yes</text>
+        <text class="n5cA" x="154" y="150" text-anchor="end">no</text>
+
+        <text class="n5cK" x="636" y="70">A button</text>
+        <text class="n5cK" x="636" y="90">Issue invoice: Ines</text>
+        <text class="n5cK" x="636" y="108">clicks as she sends it</text>
+
+        <text class="n5cL" x="356" y="174">Must it run on every</text>
+        <text class="n5cL" x="356" y="192">change, or on a schedule?</text>
+        <text class="n5cA" x="603" y="168" text-anchor="middle">yes</text>
+        <text class="n5cA" x="457" y="232" text-anchor="end">no</text>
+
+        <text class="n5cL" x="636" y="164">Database automation</text>
+        <text class="n5cS" x="636" y="182">Page added, Property edited,</text>
+        <text class="n5cS" x="636" y="198">Every {frequency} · paid plan</text>
+
+        <text class="n5cL" x="356" y="274">Does it need</text>
+        <text class="n5cL" x="356" y="292">another app?</text>
+        <text class="n5cA" x="603" y="268" text-anchor="middle">yes</text>
+        <text class="n5cA" x="317" y="268" text-anchor="middle">no</text>
+
+        <text class="n5cL" x="636" y="264">Link out</text>
+        <text class="n5cS" x="636" y="282">Zapier, Make, n8n:</text>
+        <text class="n5cS" x="636" y="298">taught in Automation</text>
+
+        <text class="n5cL" x="56" y="274">Neither</text>
+        <text class="n5cS" x="56" y="292">a formula or a view does it</text>
+
+        <text class="n5cN" x="30" y="344">Buttons are on every plan; a few button actions (Send mail, Send webhook, Slack) need a paid plan.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - ask who decides the moment first; most "I need an automation" wishes turn out to be a button or a formula</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>A button that freezes the rate<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A <strong>button</strong> is a property type, and the database buttons help page says a button property adds an "Edit property" action that changes pages in the current database, the row you clicked on. Another action, <strong>Define variables</strong>, creates variables from mentions and formulas that later actions in the same button can use.</p>
+        <p>Here is the design. Each invoice has a <strong>Client rate</strong>, a rollup that reads the client's current rate live, and a <strong>Billed rate</strong>, a plain number. An "Issue invoice" button does two things in one click: it sets Status to Issued, and it copies the Client rate into Billed rate. After that click, Billed rate is an ordinary number. When Brightwell's rate goes up next quarter, the Client rate on old invoices changes and the Billed rate does not, which is exactly right: the old work was billed at the old rate.</p>
+        <p>This is rung 4 of session 4's bench. Counted on the constructed rows, rung 4 left 0 stale-rate invoices and $0 off contract, against 7 stale invoices and $1,965 off on rung 3. The bench also counted the tempting shortcut: if Amount had used the live rollup directly, with nothing frozen, it would have rewritten 14 past invoices.</p>
+        <p>The exact wiring (how a variable reads the rollup, which value the Edit property action accepts) may need adjusting in your workspace; the goal is what matters. Add a <strong>Show confirmation</strong> action first, so a stray click asks "issue this invoice?" before it writes anything.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Database automations and the plan line<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A <strong>database automation</strong> runs without a click. The help page lists three triggers: Page added, Property edited, and Every {frequency}. Its actions include Edit property, Add page to, Edit pages in, notifications, mail, webhook, Slack and Define variables.</p>
+        <p>The plan line, as the help page states it: database automations need a paid plan. Free plan users can create only Slack notification automations, and can use, but not edit, automations that come included in templates. Buttons are on every plan, but two button actions, Send mail (Gmail) and Send webhook, are paid-only, and Send Slack notification is listed for Plus, Business and Enterprise. Plan prices change too often to print; read the pricing page on the day you decide.</p>
+        <p>The rest of the button actions on the help page: Insert blocks, Add page to, Edit pages in, Send notification to (up to 20 members), Show confirmation, Open page or URL, and Define variables.</p>
+        <p>Anything that has to cross into another app (a form tool, an accounting package, your inbox rules) belongs to external tools such as Zapier, Make and n8n, and those are taught in <a href="https://phoebefu6.github.io/learn-automation-with-phoebe/">Automation ↗</a>. Notion's own buttons and automations stay on this page.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The automation that stamped the wrong date.</strong> A familiar pattern in shared workspaces: an automation set to fill "Sent on" with today's date whenever an invoice was edited. It worked the day it was built. Then someone fixed a typo in a January invoice in March, and the invoice now said it was sent in March. "Sent" was a moment a person decided, so it needed a button, which runs once when clicked, not a trigger that runs on every edit.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>The invoice engine, in your own account</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">Tonight the Invoices database stops being a list of typed numbers. You will add two formulas, a live rate, a frozen rate and the button between them, then two templates. Ines's values are constructed; your rates will differ. Steps 1 to 5 work on a free plan; nothing here needs a paid automation.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Invoices database after tonight, as a table with columns Name, Hours, Client rate (rollup), Billed rate (number), Amount (formula), Overdue (formula) and Issue invoice (button). The Billed rate column is highlighted. Row INV-031 Brightwell shows Client rate 140 but Billed rate 125 and Amount 1,500, because the rate was frozen when the invoice was issued and the client's rate rose later. Constructed rows.">
+        <defs>
+          <filter id="n5dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="69" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <marker id="n5dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n5dH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n5dL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n5dS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n5dA { font: 700 11px Inter, sans-serif; fill: #2F2F2F; }
+          .n5dN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n5dK { font: 800 12px Inter, sans-serif; fill: #191919; }
+        </style>
+
+        <text class="n5dH" x="30" y="26">INVOICES, AFTER TONIGHT</text>
+
+        <g filter="url(#n5dSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="50" y="50" width="780" height="154" rx="10" transform="rotate(-0.3 440 127)" fill="#FFFFFF"/>
+          <rect x="402" y="56" width="106" height="142" rx="4" fill="#B58900" stroke="#6B5100"/>
+          <path d="M60 98 L820 98 M60 126 L820 126 M60 154 L820 154 M60 182 L820 182" stroke="#D3D1CB" stroke-width="1.2"/>
+          <path d="M208 58 L208 196 M278 58 L278 196 M610 58 L610 196 M700 58 L700 196" stroke="#D3D1CB" stroke-width="1.2"/>
+          <rect x="708" y="104" width="104" height="18" rx="4" fill="#F7F6F3"/>
+          <rect x="708" y="132" width="104" height="18" rx="4" fill="#F7F6F3"/>
+          <rect x="708" y="160" width="104" height="18" rx="4" fill="#F7F6F3"/>
+          <rect x="489" y="38" width="14" height="11" rx="2" stroke-width="1.6"/>
+          <path d="M491 38 C491 30 501 30 501 38" stroke-width="1.6"/>
+          <path d="M330 210 C350 236 420 236 446 212" marker-end="url(#n5dAr)"/>
+        </g>
+
+        <text class="n5dA" x="68" y="72">Name</text>
+        <text class="n5dS" x="68" y="88">title</text>
+        <text class="n5dA" x="216" y="72">Hours</text>
+        <text class="n5dS" x="216" y="88">number</text>
+        <text class="n5dA" x="286" y="72">Client rate</text>
+        <text class="n5dS" x="286" y="88">rollup, live</text>
+        <text class="n5dK" x="412" y="72">Billed rate</text>
+        <text class="n5dK" x="412" y="88" style="font-weight:600">number, frozen</text>
+        <text class="n5dA" x="518" y="72">Amount</text>
+        <text class="n5dS" x="518" y="88">formula</text>
+        <text class="n5dA" x="618" y="72">Overdue</text>
+        <text class="n5dS" x="618" y="88">formula</text>
+        <text class="n5dA" x="708" y="72">Issue invoice</text>
+        <text class="n5dS" x="708" y="88">button</text>
+
+        <text class="n5dS" x="68" y="116">INV-031 Brightwell</text>
+        <text class="n5dS" x="216" y="116">12</text>
+        <text class="n5dS" x="286" y="116">140</text>
+        <text class="n5dK" x="412" y="116">125</text>
+        <text class="n5dS" x="518" y="116">1,500</text>
+        <text class="n5dS" x="618" y="116">☐</text>
+        <text class="n5dS" x="716" y="117">Issue invoice</text>
+
+        <text class="n5dS" x="68" y="144">INV-044 Corvid</text>
+        <text class="n5dS" x="216" y="144">8</text>
+        <text class="n5dS" x="286" y="144">110</text>
+        <text class="n5dK" x="412" y="144">110</text>
+        <text class="n5dS" x="518" y="144">880</text>
+        <text class="n5dS" x="618" y="144">☑ overdue</text>
+        <text class="n5dS" x="716" y="145">Issue invoice</text>
+
+        <text class="n5dS" x="68" y="172">INV-046 Aldermoor</text>
+        <text class="n5dS" x="216" y="172">10</text>
+        <text class="n5dS" x="286" y="172">135</text>
+        <text class="n5dK" x="412" y="172">empty</text>
+        <text class="n5dS" x="518" y="172">empty</text>
+        <text class="n5dS" x="618" y="172">☐</text>
+        <text class="n5dS" x="716" y="173">Issue invoice</text>
+        <text class="n5dS" x="68" y="194">draft: not issued yet</text>
+
+        <text class="n5dS" x="250" y="256">copied once, when the button is clicked</text>
+        <text class="n5dS" x="540" y="230">Client rate follows the client (140 today);</text>
+        <text class="n5dS" x="540" y="246">Billed rate keeps the 125 in force at issue.</text>
+
+        <text class="n5dN" x="30" y="284">Constructed rows: in the bench sample, Brightwell's rate rose from $125 to $140 in week 18.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - two rates on one row: the live one tells you what the client costs today, the frozen one tells you what this invoice was for</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Add the Amount formula.</strong> In Invoices, make sure Hours and Billed rate exist as Number properties (type a rate into Billed rate by hand for now; step 4 takes over that job). Then add a Formula property called Amount. Open the editor from one row so you see the live preview.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · Amount</span>Invoices → add property → Number:   Hours
+Invoices → add property → Number:   Billed rate
+Invoices → add property → Formula:  Amount
+  /* hours times the rate frozen at issue */
+  prop("Hours") * prop("Billed rate")
+Check on Ines's INV-031: 12 x 125 = 1,500   (constructed)</div>
+      </div>
+      <div class="step">
+        <p><strong>Add the Overdue formula.</strong> It should be true only when the invoice is not Paid and its due date has passed. If Invoices does not yet have a Due date (Date) and a Status with a Paid option, add them first. This version uses only functions confirmed on the syntax page.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · Overdue</span>Invoices → add property → Formula:  Overdue
+  /* paid or undated invoices are never overdue */
+  ifs(
+    prop("Status") == "Paid", false,
+    empty(prop("Due date")), false,
+    dateBetween(now(), prop("Due date"), "days") &gt; 0
+  )
+Check: an Issued invoice due last week shows ticked</div>
+      </div>
+      <div class="step">
+        <p><strong>Add the Client rate rollup.</strong> You cannot roll up a rollup, so a rate rolled up onto Projects cannot be rolled up again onto Invoices. Two ways round it: put the rate rollup on Projects and have the invoice formula read that, or relate Invoices directly to Clients. Pick the direct relation, limited to one page, because an invoice has exactly one client.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · a live rate</span>Invoices → add property → Relation → Clients
+  Name: Client · Limit: 1 page
+  Show on Clients: on   (Clients get an Invoices list)
+Invoices → add property → Rollup:  Client rate
+  Relation: Client · Property: Rate · Calculate: Sum
+  (with one related client, Sum is simply that client's rate)
+Check: INV-031 shows 140, Brightwell's rate today   (constructed)</div>
+      </div>
+      <div class="step">
+        <p><strong>Add the Issue invoice button.</strong> Add a Button property. Give it a confirmation first, then a variable that reads the Client rate, then one Edit property action that sets Status and Billed rate together. The exact wiring may need adjusting in your workspace; test it on a draft invoice before a real one.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · freeze the rate</span>Invoices → add property → Button:  Issue invoice
+  Action 1  Show confirmation:  "Issue this invoice?"
+  Action 2  Define variables:   rate = this page's Client rate
+  Action 3  Edit property (this page):
+              Status      → Issued
+              Billed rate → rate
+Test: click on INV-046 (draft), then change Aldermoor's rate
+      in Clients. Client rate moves; Billed rate must not.</div>
+      </div>
+      <div class="step">
+        <p><strong>Add a New project template.</strong> In Projects, open the dropdown next to New and make a template. Its title is its name. Put in only what is true of every project, and leave the Client relation empty.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · New project</span>Projects → dropdown next to New → + New template
+Title:   New project
+Status:  Not started
+Client:  (leave empty)
+Body:    ## Brief
+         ☐ Kick-off call
+         ☐ Discussion guide
+         ☐ Recruit participants with Theo
+         ☐ Readout
+Test: New → New project, name it "Brightwell round 2"</div>
+      </div>
+      <div class="step">
+        <p><strong>Add a weekly repeating Monday review.</strong> In Meetings (or a Reviews database if you keep one), make a second template and set it to repeat weekly. From then on a fresh review page appears every Monday morning without anyone making it.</p>
+        <div class="prompt-box good"><span class="label">★ Step 6 · a page every Monday</span>Meetings → dropdown next to New → + New template
+Title:   Monday review
+Body:    ☐ Unpaid invoices
+         ☐ Tasks due this week
+         ☐ What Theo needs from me
+Repeat:  weekly · interval 1 · start next Monday · 09:00
+(no nested templates inside it; your times will differ)</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Write a one-line comment at the top of every formula.</strong> <code>/* hours times the rate frozen at issue */</code> costs five seconds tonight and saves the half hour of reverse-engineering when you, or Theo, open it next year.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before session 6</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Prove the freeze.</strong> Issue one invoice with the button, then raise that client's rate in Clients. Write down what Client rate and Billed rate show afterwards. If Billed rate moved, the button is copying a live value; fix the wiring.</li>
+      <li><strong>Count done tasks with one formula.</strong> On Projects, add a formula using the guide's example, <code>prop("Tasks")<wbr>.map(current.prop("Status"))<wbr>.filter(current == "Done")<wbr>.length()</code>, renamed to match your own properties.</li>
+      <li><strong>Find one typed number that should be a formula.</strong> Look through your databases for a value worked out by hand from other values on the same row, and replace it with a formula. Keep the old column for a week and compare.</li>
+      <li><strong>Sort your automation wishes.</strong> List three things you wish happened by themselves. Run each through the button, automation or neither tree, and note which ones your plan allows.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 5 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Why is Billed rate a plain number set by a button, rather than a live rollup of the client's rate?</p>
+      <button class="qopt" type="button">A · Rollups cannot be used inside formulas</button>
+      <button class="qopt" type="button">B · A number property loads faster than a rollup</button>
+      <button class="qopt" type="button">C · A live rollup would follow every later rate change and rewrite past invoices</button>
+      <button class="qopt" type="button">D · Free plans cannot create rollups</button>
+      <p class="qwhy">The rate in force when the work was billed is its own fact. Counted on session 4's constructed rows, a live rollup with no freeze would have rewritten 14 past invoices; the frozen rate left 0 stale invoices. A, B and D are not what the help pages say.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · Theo is on a Free plan. Which of these can he do?</p>
+      <button class="qopt" type="button">A · Create a Slack notification automation, and use an automation that came in a template</button>
+      <button class="qopt" type="button">B · Create a Property edited automation that sets a date</button>
+      <button class="qopt" type="button">C · Edit the automations included in a template he duplicated</button>
+      <button class="qopt" type="button">D · Add a button that sends a webhook</button>
+      <p class="qwhy">The help page says database automations need a paid plan, except that Free users can create Slack notification automations and can use, not edit, automations included in templates. Send webhook is a paid-only button action.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · Which formula counts the done tasks on a project through its Tasks relation?</p>
+      <button class="qopt" type="button">A · <code>prop("Tasks").length() == "Done"</code></button>
+      <button class="qopt" type="button">B · <code>sum(prop("Tasks"), "Done")</code></button>
+      <button class="qopt" type="button">C · <code>prop("Status").filter("Done").map(current)</code></button>
+      <button class="qopt" type="button">D · <code>prop("Tasks")<wbr>.map(current.prop("Status"))<wbr>.filter(current == "Done")<wbr>.length()</code></button>
+      <p class="qwhy">D is the Formulas 2.0 guide's own example: turn each related task into its Status with <code>map</code>, keep the ones equal to "Done" with <code>filter</code>, then count with <code>length</code>. The others do not reach through the relation.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center, Intro to formulas</span><span class="note">What a formula property does, inline property names in the editor, the live preview from a row; read at source 9 October 2026</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center, Formula syntax &amp; functions</span><span class="note"><code>prop("Name")</code>, if and ifs, let and lets, dateBetween, now, empty and the other functions confirmed with examples; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center guide, Formulas 2.0</span><span class="note">Multi-line with comments, new output types, reaching into related rows, the Tasks map and filter example, dot notation, the migration to text; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center, Database templates</span><span class="note"><code>+ New template</code>, repeating templates, three levels of nesting, the advice on pre-filled relations; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center, Buttons and Database buttons</span><span class="note">Button actions and their plan limits, Edit property on the current database, Define variables, Show confirmation; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center, Database automations</span><span class="note">The three triggers, the actions, the paid-plan line and what Free users can do; read at source</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Ines, Theo, every invoice and rate</span><span class="note">Constructed for teaching; bench numbers counted on the constructed rows of session 4</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 5 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Compute, never type</b><span>A value worked out from the row's own fields is a formula. A typed copy is a future disagreement.</span></div>
+      <div class="cheat-item"><b>Type prop("Name")</b><span>Multi-line, with /* comments */. ifs checks in order and ends with a fallback.</span></div>
+      <div class="cheat-item"><b>Reach through a relation</b><span>prop("Tasks")<wbr>.map(current.prop("Status"))<wbr>.filter(current == "Done")<wbr>.length()</span></div>
+      <div class="cheat-item"><b>Templates stamp the shape</b><span>+ New template beside New. Put in what every row shares; leave the client blank.</span></div>
+      <div class="cheat-item"><b>Live rate, frozen rate</b><span>A rollup says what the client costs today; a button-set number says what this invoice was for.</span></div>
+      <div class="cheat-item"><b>Who decides the moment?</b><span>A person: button. Every change or a schedule: automation, paid plan. Another app: link out.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>Ines's databases now compute, stamp and freeze. Session 6 puts them on one page she opens every Monday: linked views filtered for each purpose, what edits propagate and what stays local, and the access Theo gets so he can update his tasks without touching the structure.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 5 of 6 · learn-notion-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="04-the-drift-bench.html">← Prev: The drift bench</a> &nbsp;·&nbsp; <a href="06-the-monday-dashboard.html">Next: The Monday dashboard →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

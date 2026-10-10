@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 1 of 6. A page holds writing; a database holds things you will ask questions about, and every row in it is itself a page. Inline and full-page databases, data sources, views as lenses on one set of rows, and the skeleton of one constructed consultant's workspace.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Pages are not databases - learn notion with phoebe">
+<meta property="og:description" content="Session 1 of 6. Tell a page from a database, read a view as a lens, and build a six-database skeleton.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-notion-with-phoebe/courses/01-pages-are-not-databases.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-notion-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pages are not databases - learn notion with phoebe">
+<meta name="twitter:description" content="Session 1 of 6. Pages, databases, data sources and views, on one constructed workspace.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-notion-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 1 · Pages are not databases - learn notion with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=3">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-notion-with-phoebe</a> / Session 1 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Notion with Phoebe · Session 1 of 6</div>
+    <h1><span class="accent">Pages</span> are not databases</h1>
+    <p class="sub">Most Notion workspaces go wrong on the first afternoon, when a list of things that will be counted, sorted and filtered gets typed into a page as bullet points. Tonight we draw the line between the two building blocks: a page holds writing, a database holds things you will ask questions about, and every row of a database is itself a page you can write in. Then we read a view as a lens on one set of rows, and build the skeleton of one constructed consultant's working life.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Foundations</span>
+      <span class="chip audience">Anyone with a free Notion account</span>
+      <span class="chip audience">A laptop, Notion open in a browser</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Pages, databases, views</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: the skeleton</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">The running case is constructed. Ines is an invented freelance user-research consultant: interviews, usability studies and diary studies for small and mid-sized organisations. She has four active clients, two past clients who still owe her the odd reference, and one part-time contractor, Theo, who recruits participants and takes notes. Today her operations live in five places: a notes page per client with rates typed into the prose, a task app, a spreadsheet of invoices, her calendar and her inbox. Over six sessions she moves them into one Notion workspace. Every Ines detail is invented for teaching.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = build it yourself</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> A one-question test for whether something belongs in a page or a database, a working picture of a view as a lens on rows that live once, and your own workspace skeleton: a Home page and six full-page databases (Clients, Projects, Tasks, Meetings, Invoices, Reading list) with the first real rows in Clients.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers pages, databases, and rows that are pages</span>
+      <h2>Writing goes in pages, things go in databases</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A page is a document: headings, paragraphs, lists, images. A database is a collection of items that share the same fields. Notion's help page puts the link between them in one line: "Every item you enter into your database is a Notion page." That sentence is the whole design of the tool, and it is why you never have to choose between structure and writing.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Before and after. Left, Ines's client notes as one page: four bullets that mix client names, rates and next steps in prose, so nothing can be sorted or counted. Right, a Clients database: four rows with Name, Rate and Status columns, and one row opened into its own page with the properties at the top and the client brief written underneath. The opened row is highlighted.">
+        <defs>
+          <filter id="n1aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="n1aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2F2F2F" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="n1aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n1aH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n1aL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n1aS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n1aB { font: 800 11px Inter, sans-serif; fill: #6B5100; }
+          .n1aA { font: 700 11px Inter, sans-serif; fill: #2F2F2F; }
+          .n1aN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n1aW { font: 800 11px Inter, sans-serif; fill: #991B1B; }
+        </style>
+
+        <text class="n1aH" x="30" y="26">THE SAME FOUR CLIENTS, WRITTEN TWO WAYS</text>
+
+        <g filter="url(#n1aSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="48" width="360" height="210" rx="10" transform="rotate(-0.5 220 153)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <rect x="460" y="48" width="380" height="104" rx="8" transform="rotate(0.4 650 100)" fill="#FFFFFF"/>
+          <path d="M470 76 L830 76 M470 96 L830 96 M470 116 L830 116 M470 136 L830 136" stroke="#D3D1CB" stroke-width="1.2"/>
+          <path d="M630 56 L630 146 M730 56 L730 146" stroke="#D3D1CB" stroke-width="1.2"/>
+          <rect x="466" y="98" width="368" height="18" rx="3" fill="#B58900" stroke="#6B5100"/>
+          <path d="M650 156 L650 176" marker-end="url(#n1aAr)"/>
+          <rect x="520" y="182" width="300" height="88" rx="8" transform="rotate(-0.6 670 226)" fill="#F7F6F3"/>
+          <path d="M534 226 L806 226" stroke="#D3D1CB" stroke-width="1.2"/>
+        </g>
+
+        <text class="n1aW" x="58" y="72">✗ A page called "Clients"</text>
+        <text class="n1aS" x="58" y="98">• Aldermoor Health, $120/h, diary study</text>
+        <text class="n1aS" x="58" y="118">  until March, chase the readout date</text>
+        <text class="n1aS" x="58" y="142">• Brightwell Mutual, 125 an hour now?</text>
+        <text class="n1aS" x="58" y="166">• Corvid Studio, $95, usability, Theo</text>
+        <text class="n1aS" x="58" y="190">• Dunmore Council, $100/h, survey</text>
+        <text class="n1aS" x="58" y="222">Which clients pay over $100? Scroll</text>
+        <text class="n1aS" x="58" y="240">and read. Nothing here can be sorted.</text>
+
+        <text class="n1aA" x="476" y="70">Name</text>
+        <text class="n1aA" x="640" y="70">Rate</text>
+        <text class="n1aA" x="740" y="70">Status</text>
+        <text class="n1aS" x="476" y="90">Aldermoor Health</text>
+        <text class="n1aS" x="640" y="90">120</text>
+        <text class="n1aS" x="740" y="90">Active</text>
+        <text class="n1aL" x="476" y="111" style="fill:#191919">Brightwell Mutual</text>
+        <text class="n1aL" x="640" y="111" style="fill:#191919">125</text>
+        <text class="n1aL" x="740" y="111" style="fill:#191919">Active</text>
+        <text class="n1aS" x="476" y="130">Corvid Studio</text>
+        <text class="n1aS" x="640" y="130">95</text>
+        <text class="n1aS" x="740" y="130">Active</text>
+
+        <text class="n1aL" x="536" y="204">Brightwell Mutual, opened</text>
+        <text class="n1aS" x="536" y="220">Rate 125 · Status Active</text>
+        <text class="n1aS" x="536" y="246">Brief: pension app study, two</text>
+        <text class="n1aS" x="536" y="262">rounds, readout in week 6...</text>
+
+        <text class="n1aN" x="30" y="300">Every row of a database is a page: the fields sit on top, the writing underneath. Constructed rows.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the page on the left can only be read; the database on the right can be sorted, filtered and counted, and each row still opens into a page for the writing</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Every row is a page<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Notion's databases help page says each row, card or calendar event is a full page you can format and add content to, with its properties (dates, status, links and so on) sitting at the top. So a Clients database is not a spreadsheet that replaces Ines's notes. It is her notes, each one now wearing a small set of labelled fields above the writing.</p>
+        <p>That changes the question you ask when you start. It is never "page or database, structure or writing?" It is "will there be many of these, and will I want to ask questions across them?" If yes, they are rows of a database, and each row still has room for as much writing as a page.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What a property is, before session 2<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A property is one labelled field that every row in a database shares: a rate, a status, a date, a person. The help page lists 22 property types, from Text and Number to Relation, Rollup and Button. A page outside a database has no properties, which is exactly why "which clients pay over $100?" cannot be asked of a bullet list. Session 2 is entirely about choosing property types by the question they have to answer.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The meeting-notes page that became a search problem.</strong> A familiar pattern in shared workspaces: one long page called "Meeting notes", a new heading per meeting, years deep. Finding every meeting with one client means scrolling or searching text. Make each meeting a row of a Meetings database with a date and a client field, and the same notes become a list you can filter in a second, with every meeting's notes still written inside its own row.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers inline and full-page databases, data sources and views</span>
+      <h2>One set of rows, many lenses</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A database's rows live in one place, which Notion now calls its data source: "Every database is made up of at least one data source." A view is a way of looking at those rows: a table, a board, a calendar. Change a row in any view and every other view shows the change, because there is only one row.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One Tasks data source drawn at the bottom as a stack of rows. Three views sit above it as lenses: a table sorted by due date, a board grouped by status, and a calendar by due date. Arrows run from each view down into the same rows. One row, Write findings, is highlighted in the source and in all three views, to show that an edit in any view changes the single row.">
+        <defs>
+          <filter id="n1bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="23" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="n1bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2F2F2F" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="n1bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n1bH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n1bL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n1bS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n1bA { font: 700 11px Inter, sans-serif; fill: #2F2F2F; }
+          .n1bN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n1bK { font: 800 11px Inter, sans-serif; fill: #191919; }
+        </style>
+
+        <text class="n1bH" x="30" y="26">THREE VIEWS, ONE TASKS DATA SOURCE</text>
+
+        <g filter="url(#n1bSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="46" width="240" height="110" rx="10" transform="rotate(-0.8 160 101)" fill="#FFFFFF"/>
+          <path d="M52 78 L268 78 M52 100 L268 100 M52 122 L268 122" stroke="#D3D1CB" stroke-width="1.2"/>
+          <rect x="50" y="102" width="220" height="18" rx="3" fill="#B58900" stroke="#6B5100"/>
+          <rect x="320" y="46" width="240" height="110" rx="10" transform="rotate(0.6 440 101)" fill="#FFFFFF"/>
+          <rect x="332" y="72" width="66" height="70" rx="5" fill="#F7F6F3"/>
+          <rect x="407" y="72" width="66" height="70" rx="5" fill="#F7F6F3"/>
+          <rect x="482" y="72" width="66" height="70" rx="5" fill="#F7F6F3"/>
+          <rect x="411" y="98" width="58" height="20" rx="3" fill="#B58900" stroke="#6B5100"/>
+          <rect x="600" y="46" width="240" height="110" rx="10" transform="rotate(-0.5 720 101)" fill="#FFFFFF"/>
+          <path d="M612 80 L828 80 M612 112 L828 112 M660 66 L660 146 M708 66 L708 146 M756 66 L756 146 M804 66 L804 146" stroke="#D3D1CB" stroke-width="1.2"/>
+          <rect x="712" y="88" width="40" height="18" rx="3" fill="#B58900" stroke="#6B5100"/>
+          <path d="M160 166 C190 196 300 214 380 224" marker-end="url(#n1bAr)"/>
+          <path d="M440 166 L440 210" marker-end="url(#n1bAr)"/>
+          <path d="M720 166 C690 196 580 214 500 224" marker-end="url(#n1bAr)"/>
+          <rect x="250" y="226" width="380" height="64" rx="10" transform="rotate(0.4 440 258)" fill="url(#n1bHc)"/>
+          <rect x="300" y="248" width="280" height="22" rx="4" fill="#B58900" stroke="#6B5100"/>
+        </g>
+
+        <text class="n1bA" x="56" y="66">TABLE · sorted by Due</text>
+        <text class="n1bS" x="58" y="94">Run sessions</text>
+        <text class="n1bK" x="58" y="115">Write findings</text>
+        <text class="n1bS" x="58" y="138">Readout to client</text>
+        <text class="n1bA" x="336" y="64">BOARD · grouped by Status</text>
+        <text class="n1bK" x="440" y="112" text-anchor="middle">Write</text>
+        <text class="n1bA" x="616" y="64">CALENDAR · by Due</text>
+        <text class="n1bK" x="732" y="101" text-anchor="middle">Write</text>
+        <text class="n1bK" x="440" y="263" text-anchor="middle">Write findings · the one row</text>
+        <text class="n1bL" x="650" y="250">Tasks data source</text>
+        <text class="n1bS" x="650" y="268">each row lives here, once</text>
+
+        <text class="n1bN" x="30" y="312">Views can each keep their own filters, sorts and groups. None of them holds a copy of a row.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - three lenses, one row; tick it done on the board and the table and calendar show it done, because there was never a second copy</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Views are lenses, not copies<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The default view is a table, and you can add as many views as you like. The help pages name table, board, timeline, calendar, list, gallery and chart. Each view can show its own properties and keep its own filters, sorts and grouping. Ines will end up with a board of tasks by status for herself, a calendar of the same tasks by due date for planning, and a table filtered to Theo's tasks for Theo. Three views, one set of task rows.</p>
+        <p>The mistake to avoid is making a second database to get a second look. A "Theo's tasks" database that Ines copies tasks into is a copy, and copies drift; session 4 counts how fast. A "Theo's tasks" view is a lens, and cannot drift, because it holds nothing.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Inline or full-page, and what a data source adds<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A <strong>full-page database</strong> appears in the sidebar like any page and can be locked so nobody changes its properties by accident. An <strong>inline database</strong> sits inside another page among the writing, with its controls hidden until you hover; it can be expanded to full page later. Ines keeps her six core databases full-page and puts inline views of them on her dashboard in session 6.</p>
+        <p>Notion's data sources page adds a newer idea: one database can hold more than one data source, and you can link an existing data source into another database. Edits to a linked source's title, properties or pages reach the original; views, filters, sorts and groups you build there stay local. Ines does not need multiple sources yet. Knowing the word matters because it is where the rows live, and a view never is.</p>
+        <p>One practical number from the help page: above 1,000 items, new pages may appear in the middle of a database rather than at the end. Sort by created time if order matters.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <p><strong>Before you make a new database, ask whether you want new rows or a new look.</strong> New look: add a view. New rows of a different kind of thing: new database. That one question prevents most duplicate databases.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers what becomes a database in a working life</span>
+      <h2>The many-and-asked test</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Ines does not need a database for everything. Her home page, a note on how she likes to run a readout, a template for a discussion guide: those are pages. Two questions sort the rest, and they take ten seconds per thing.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A decision tree. First question: will there be more than a handful of these? No leads to a page, for example Home or How I run a readout. Yes leads to the second question: will you ask questions across them, such as filter, count, sort or total? No leads to a page with a list inside, for example a packing list. Yes leads to a database, for example Clients, Projects, Tasks, Meetings, Invoices and Reading list, highlighted.">
+        <defs>
+          <filter id="n1cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="37" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <marker id="n1cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n1cH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n1cL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n1cS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n1cA { font: 700 11px Inter, sans-serif; fill: #2F2F2F; }
+          .n1cN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n1cK { font: 800 12px Inter, sans-serif; fill: #191919; }
+        </style>
+
+        <text class="n1cH" x="30" y="26">PAGE OR DATABASE: TWO QUESTIONS</text>
+
+        <g filter="url(#n1cSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="56" width="240" height="56" rx="10" transform="rotate(-0.6 160 84)" fill="#FFFFFF"/>
+          <rect x="340" y="150" width="240" height="56" rx="10" transform="rotate(0.5 460 178)" fill="#FFFFFF"/>
+          <rect x="640" y="48" width="200" height="72" rx="10" transform="rotate(0.7 740 84)" fill="#F7F6F3"/>
+          <rect x="640" y="146" width="200" height="64" rx="10" transform="rotate(-0.6 740 178)" fill="#F7F6F3"/>
+          <rect x="640" y="236" width="200" height="72" rx="10" transform="rotate(0.5 740 272)" fill="#B58900" stroke="#6B5100"/>
+          <path d="M284 80 L632 80" marker-end="url(#n1cAr)"/>
+          <path d="M160 118 C160 170 250 178 332 178" marker-end="url(#n1cAr)"/>
+          <path d="M584 172 L632 172" marker-end="url(#n1cAr)"/>
+          <path d="M460 212 C460 260 540 272 632 272" marker-end="url(#n1cAr)"/>
+        </g>
+
+        <text class="n1cL" x="56" y="80">More than a handful</text>
+        <text class="n1cL" x="56" y="98">of these, ever?</text>
+        <text class="n1cA" x="440" y="72" text-anchor="middle">no</text>
+        <text class="n1cA" x="150" y="150" text-anchor="end">yes</text>
+        <text class="n1cL" x="356" y="174">Will you filter, count,</text>
+        <text class="n1cL" x="356" y="192">sort or total them?</text>
+        <text class="n1cA" x="608" y="164" text-anchor="middle">no</text>
+        <text class="n1cA" x="448" y="248" text-anchor="end">yes</text>
+
+        <text class="n1cL" x="656" y="74">A page</text>
+        <text class="n1cS" x="656" y="92">Home, How I run</text>
+        <text class="n1cS" x="656" y="108">a readout</text>
+        <text class="n1cL" x="656" y="172">A page with a list</text>
+        <text class="n1cS" x="656" y="190">a field-visit packing list</text>
+        <text class="n1cK" x="656" y="262">A database</text>
+        <text class="n1cK" x="656" y="280">Clients, Projects, Tasks,</text>
+        <text class="n1cK" x="656" y="296">Meetings, Invoices, Reading</text>
+
+        <text class="n1cN" x="30" y="326">If the answer changes later, a list inside a page can be turned into a database; plan for the questions you know.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - "many" alone is not enough; a database earns its place when you will ask questions across the many</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Ines's six databases, and why each one<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Clients</strong>: which are active, at what rate. <strong>Projects</strong>: what is running for whom, and when it ends. <strong>Tasks</strong>: what is due this week, and who has it. <strong>Meetings</strong>: every call with a client, findable by client and date. <strong>Invoices</strong>: what was billed this quarter, and what is unpaid. <strong>Reading list</strong>: books and papers she means to read, by topic and status.</p>
+        <p>Every one passes both questions. Notice what is not on the list: her interview insights and research notes. Those are ideas, linked to each other, and they live in her research vault, which <a href="https://phoebefu6.github.io/learn-obsidian-with-phoebe/">Obsidian ↗</a> builds with the same Ines. This workspace runs her operations.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Where PARA fits, without re-teaching it<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>If you already organise by Projects, Areas, Resources and Archive, that is a fine starting structure for the sidebar: Projects and Tasks are her projects, Clients and Invoices are an area she maintains, the Reading list is a resource. The theory of PARA and of one home per note is taught in <a href="https://phoebefu6.github.io/learn-pkm-with-phoebe/">PKM ↗</a>. Here the point is narrower: whatever your top-level folders, the things you will ask questions about become databases, and the folders hold views of them.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The reading list that grew up.</strong> A reading list usually starts as a page of bullets, which is right while it has ten books. The day you want "unread books on research methods, shortest first", it has failed the second question, and it becomes a database with a topic, a status and a page count. Nothing is lost: each bullet becomes a row whose page holds the notes you had written beside it.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Ines's workspace skeleton, in your own account</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">Build the skeleton the next five sessions fill in. Use Ines's names to follow along exactly, or swap in your own clients and projects; the structure is the same. Every step works on a free Notion account. Leave properties for session 2: tonight is pages, databases and the first rows.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The skeleton after tonight. A Home page on the left links to six full-page databases on the right: Clients, Projects, Tasks, Meetings, Invoices and Reading list. Clients is highlighted because it is the only one with rows tonight: four active and two past clients. The other five are empty, waiting for session 2's properties.">
+        <defs>
+          <filter id="n1dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="41" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <marker id="n1dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#37352F" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .n1dH { font: 800 12px Inter, sans-serif; fill: #37352F; }
+          .n1dL { font: 600 12px Inter, sans-serif; fill: #37352F; }
+          .n1dS { font: 400 11px Inter, sans-serif; fill: #5F5C57; }
+          .n1dN { font: 400 12px Inter, sans-serif; fill: #5F5C57; }
+          .n1dK { font: 800 12px Inter, sans-serif; fill: #191919; }
+        </style>
+
+        <text class="n1dH" x="30" y="26">TONIGHT'S SKELETON: ONE PAGE, SIX DATABASES</text>
+
+        <g filter="url(#n1dSk)" fill="none" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="50" y="96" width="200" height="90" rx="10" transform="rotate(-0.8 150 141)" fill="#FFFFFF"/>
+          <path d="M64 136 L236 136 M64 154 L236 154 M64 172 L200 172" stroke="#D3D1CB" stroke-width="1.2"/>
+          <rect x="420" y="48" width="200" height="44" rx="8" transform="rotate(0.6 520 70)" fill="#B58900" stroke="#6B5100"/>
+          <rect x="420" y="112" width="200" height="44" rx="8" transform="rotate(-0.5 520 134)" fill="#F7F6F3"/>
+          <rect x="420" y="176" width="200" height="44" rx="8" transform="rotate(0.4 520 198)" fill="#F7F6F3"/>
+          <rect x="650" y="48" width="200" height="44" rx="8" transform="rotate(-0.4 750 70)" fill="#F7F6F3"/>
+          <rect x="650" y="112" width="200" height="44" rx="8" transform="rotate(0.5 750 134)" fill="#F7F6F3"/>
+          <rect x="650" y="176" width="200" height="44" rx="8" transform="rotate(-0.6 750 198)" fill="#F7F6F3"/>
+          <path d="M256 124 C320 96 360 78 412 72" marker-end="url(#n1dAr)"/>
+          <path d="M256 140 L412 136" marker-end="url(#n1dAr)"/>
+          <path d="M256 156 C320 180 360 194 412 198" marker-end="url(#n1dAr)"/>
+        </g>
+
+        <text class="n1dL" x="66" y="122">Home (a page)</text>
+        <text class="n1dK" x="436" y="68">Clients</text>
+        <text class="n1dK" x="436" y="84" style="font-weight:600">6 rows tonight</text>
+        <text class="n1dL" x="436" y="139">Projects</text>
+        <text class="n1dL" x="436" y="203">Tasks</text>
+        <text class="n1dL" x="666" y="75">Meetings</text>
+        <text class="n1dL" x="666" y="139">Invoices</text>
+        <text class="n1dL" x="666" y="203">Reading list</text>
+        <text class="n1dS" x="420" y="244">all six full-page, in the sidebar; five empty until session 2</text>
+
+        <text class="n1dN" x="30" y="268">Home links to the databases tonight; in session 6 it becomes the Monday dashboard of linked views.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - one page, six databases, only Clients with rows; everything after tonight is properties, relations and views on this frame</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Make the Home page.</strong> In the sidebar, add a new page and title it Home. Write one line under the title saying what the workspace is for. This page stays a page: it will hold views, never rows.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · the Home page</span>Sidebar → + New page
+Title:  Home
+Line 1: Everything I run as a freelance researcher: clients,
+        projects, tasks, meetings, invoices, reading.</div>
+      </div>
+      <div class="step">
+        <p><strong>Create the first full-page database.</strong> From Home, add a new page, choose a table database, and title it Clients. Check that it appears in the sidebar on its own: that is what full-page means.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · Clients, full-page</span>Home → + Add a page → Table (database)
+Title the database: Clients
+Default view: Table
+Check: Clients appears in the sidebar as its own entry</div>
+      </div>
+      <div class="step">
+        <p><strong>Add the first six rows.</strong> One row per client, name only, in the title column. Ines's four active clients and two past ones (constructed). Do not add a Rate column yet; session 2 decides what type it should be.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · six rows</span>Aldermoor Health
+Brightwell Mutual
+Corvid Studio
+Dunmore Council
+Eastgate Retail     (past client)
+Fernhill Labs       (past client)</div>
+      </div>
+      <div class="step">
+        <p><strong>Open one row as a page and write in it.</strong> Open Brightwell Mutual. Under the title, write the client brief you would have kept in a notes page. You have just proved the session's main point: the row is a page.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · the row is a page</span>Open: Brightwell Mutual
+Write under the title:
+  Pension app research. Two rounds of usability testing,
+  readout to the product team. Main contact: product lead.
+  Prefers findings as a short deck plus a recording.</div>
+      </div>
+      <div class="step">
+        <p><strong>Create the other five databases the same way.</strong> Projects, Tasks, Meetings, Invoices, Reading list: each a full-page table from Home, each empty for now. Then add a second view to Clients, a board or a list, and notice the same six rows appear in it.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · five more, and a second lens</span>Home → + Add a page → Table, five times:
+  Projects · Tasks · Meetings · Invoices · Reading list
+Clients → + Add a view → List
+Check: the same six clients appear in both views</div>
+      </div>
+      <div class="step">
+        <p><strong>Run the many-and-asked test on what is left.</strong> List three other things in your working life and decide page or database for each, out loud, with the question that decided it.</p>
+        <div class="prompt-box good"><span class="label">★ Step 6 · three verdicts</span>Discussion guide template   → page (one of a kind, reused)
+Participant incentives paid → database (many; "total this month?")
+How I run a readout         → page (writing, nothing to count)
+(your three will differ)</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Name databases as plural nouns and rows as the thing itself.</strong> "Clients" holds rows called "Brightwell Mutual", never "Client: Brightwell Mutual". A clean title column is what every later relation and filter will show.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before session 2</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Finish the skeleton:</strong> Home plus six full-page databases, Clients with its rows, one row with a written brief.</li>
+      <li><strong>Move one real list out of a page.</strong> Pick a bullet list you keep (books, clients, ideas) and decide whether it passes both questions. If it does, make it a database.</li>
+      <li><strong>Add two views to one database</strong> and change a row in one of them. Confirm the other view changed too.</li>
+      <li><strong>Write down the five questions</strong> you most often want to ask of your clients or projects ("who is unpaid?", "what is due this week?"). Session 2 picks property types from that list.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 1 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · Ines wants to write a long client brief and also sort clients by rate. Where should the brief live?</p>
+      <button class="qopt" type="button">A · On a separate page, linked from a column in the Clients table</button>
+      <button class="qopt" type="button">B · Inside the client's row, which is itself a page, under its properties</button>
+      <button class="qopt" type="button">C · In a Text property on the Clients table</button>
+      <button class="qopt" type="button">D · In a second database called Client briefs</button>
+      <p class="qwhy">Every item in a database is a Notion page, with its properties at the top and room for writing underneath. A separate page or a second database splits one client into two places; a Text property is for a short value, not a document.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">2 · Theo should see only his own tasks. What is the right move?</p>
+      <button class="qopt" type="button">A · A new database called Theo's tasks, with his tasks copied in</button>
+      <button class="qopt" type="button">B · A page listing his tasks as bullets</button>
+      <button class="qopt" type="button">C · Duplicate the Tasks database and delete the rows that are not his</button>
+      <button class="qopt" type="button">D · A new view of the Tasks database, filtered to tasks assigned to Theo</button>
+      <p class="qwhy">A view is a lens on the one set of task rows and holds nothing itself, so it cannot fall out of date. A, B and C all make copies, and every copy has to be kept in step by hand.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · Which of these should stay a page rather than become a database?</p>
+      <button class="qopt" type="button">A · Ines's note on how she likes to run a readout</button>
+      <button class="qopt" type="button">B · Every invoice she has sent</button>
+      <button class="qopt" type="button">C · Every meeting with a client</button>
+      <button class="qopt" type="button">D · Books she means to read, by topic and status</button>
+      <p class="qwhy">The readout note is one piece of writing with nothing to filter, count or total. Invoices, meetings and the reading list are many things she will ask questions across, which is the test for a database.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center, Intro to databases</span><span class="note">Every item is a page, full-page against inline, view types, the 1,000-item ordering note; read at source 9 October 2026</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center, Data sources</span><span class="note">At least one data source per database, multiple and linked sources, what reaches the original and what stays local; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notion Help Center, Views, filters, sorts &amp; groups</span><span class="note">View types including timeline, each view with its own settings; read at source, taught fully in session 2</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Notion Help Center, Database properties</span><span class="note">Previewed only: what a property is and the count of 22 types; session 2 covers it</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Ines, Theo and every client</span><span class="note">Constructed for teaching; your workspace will differ</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 1 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Every row is a page</b><span>Properties on top, writing underneath. Never choose between structure and notes.</span></div>
+      <div class="cheat-item"><b>The many-and-asked test</b><span>Many of them, and questions across them? Database. Otherwise a page.</span></div>
+      <div class="cheat-item"><b>Views are lenses</b><span>Table, board, calendar, list, gallery, timeline, chart: one set of rows, many looks.</span></div>
+      <div class="cheat-item"><b>New look or new rows?</b><span>New look: add a view. New kind of thing: new database. Never a copy.</span></div>
+      <div class="cheat-item"><b>Data source</b><span>Where the rows live. Every database has at least one.</span></div>
+      <div class="cheat-item"><b>Full-page for the core</b><span>Six full-page databases in the sidebar; inline views of them go on pages.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>Ines has six databases and six client names. Session 2 gives them properties chosen by the questions she will ask: a rate that can be totalled, a status that knows what "done" means, dates that sort, and the first views saved for everyone.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 1 of 6 · learn-notion-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="../index.html">← Course home</a> &nbsp;·&nbsp; <a href="02-properties-that-answer-questions.html">Next: Properties that answer questions →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>
